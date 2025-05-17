@@ -2,87 +2,137 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>EcoAlertas</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoAlerta</title>
+  <meta name="description" content="EcoAlerta: reporta problemas urbanos con una foto. Empodera ciudadanos y mejora tu comunidad.">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <!-- Sección Hero -->
+  <!-- Hero -->
   <header class="hero">
     <div class="container">
-      <img src="logo.png" alt="Logotipo de EcoAlerta" class="logo" />
-      <h1>EcoAlertas</h1>
-      <p class="tagline">
-        Informa sobre basura, baches y peligros en tu ciudad con solo una foto. Nosotros le avisamos a las autoridades.
-      </p>
-      <a href="#registro" class="btn">Unirme a la lista de espera</a>
+      <img src="logo.png" alt="EcoAlerta logo" class="logo">
+      <h1>EcoAlerta</h1>
+      <p class="tagline">Reporta basura, fugas o riesgos en tu ciudad con una simple foto.</p>
+      <a href="#registro" class="btn">Únete a la Lista de Espera</a>
     </div>
   </header>
+
+  <!-- Impact Metrics -->
+  <section class="section metrics">
+    <div class="container">
+      <div class="metric"><strong>350+</strong><span>alertas enviadas</span></div>
+      <div class="metric"><strong>12</strong><span>municipios activos</span></div>
+      <div class="metric"><strong>4.8/5</strong><span>usuarios satisfechos</span></div>
+    </div>
+  </section>
 
   <!-- Cómo Funciona -->
   <section id="como-funciona" class="section">
     <div class="container">
-      <h2>Tres simples pasos para una ciudad más limpia</h2>
+      <h2>Cómo Funciona</h2>
       <div class="steps">
-        <div class="step">
-          <div class="icon">📸</div>
-          <h3>Toma una Foto</h3>
-          <p>Capturas un problema: montones de basura, tuberías rotas o cables expuestos.</p>
+        <div class="step"><div class="icon">📸</div><h3>Toma foto</h3><p>Captura el problema urbano.</p></div>
+        <div class="step"><div class="icon">📍</div><h3>Geoetiqueta</h3><p>Ubicación automática con GPS.</p></div>
+        <div class="step"><div class="icon">🚀</div><h3>Envía alerta</h3><p>La autoridad recibe tu reporte.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonios -->
+  <section class="section alt-bg testimonials">
+    <div class="container">
+      <h2>Testimonios</h2>
+      <div class="cards">
+        <blockquote>
+          "EcoAlerta cambió cómo mi barrio recibe soluciones. ¡Rápido y eficiente!"
+          <footer>- Ana, vecina de Rosario</footer>
+        </blockquote>
+        <blockquote>
+          "Excelente herramienta para la comunidad. Fácil y efectiva."
+          <footer>- Juan, voluntario ambiental</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- Logos de Aliados -->
+  <section class="section partners">
+    <div class="container">
+      <h2>Aliados</h2>
+      <div class="logos">
+        <img src="logo-muni1.png" alt="Municipalidad 1">
+        <img src="logo-ong.png" alt="ONG Verde">
+        <img src="logo-empresa.png" alt="EcoCorp">
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Explicativo -->
+  <section class="section video">
+    <div class="container">
+      <h2>Ve EcoAlerta en acción</h2>
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/TU_video_id" title="Video EcoAlerta" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog / Noticias -->
+  <section class="section alt-bg blog">
+    <div class="container">
+      <h2>Noticias</h2>
+      <article>
+        <h3>EcoAlerta llega a 10 municipios</h3>
+        <p>Conoce cómo estamos creciendo y sumando comunidades.</p>
+        <a href="#">Leer más →</a>
+      </article>
+      <article>
+        <h3>Consejos para reportar eficazmente</h3>
+        <p>Aprende a tomar fotos claras y descriptivas.</p>
+        <a href="#">Leer más →</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq">
+    <div class="container">
+      <h2>Preguntas Frecuentes</h2>
+      <div class="accordion">
+        <div class="item">
+          <button class="accordion-btn">¿Cómo funciona el GPS?</button>
+          <div class="panel"><p>La app usa la geolocalización de tu dispositivo para enviar coordenadas precisas.</p></div>
         </div>
-        <div class="step">
-          <div class="icon">📍</div>
-          <h3>Geotagging</h3>
-          <p>Tu teléfono agrega la ubicación exacta automáticamente.</p>
+        <div class="item">
+          <button class="accordion-btn">¿Mis datos son privados?</button>
+          <div class="panel"><p>Sí, tus datos solo se usan para gestión de alertas y no se comparten con terceros.</p></div>
         </div>
-        <div class="step">
-          <div class="icon">🚀</div>
-          <h3>Envía la Alerta</h3>
-          <p>Reenviamos el reporte a la municipalidad y a la empresa correspondiente.</p>
+        <div class="item">
+          <button class="accordion-btn">¿Es gratis usar EcoAlerta?</button>
+          <div class="panel"><p>Completamente gratis para todos los ciudadanos.</p></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Por Qué Importa -->
-  <section id="por-que-importa" class="section alt-bg">
-    <div class="container">
-      <h2>¿Por qué importa?</h2>
-      <p>
-        Cada día, muchos problemas urbanos pasan desapercibidos, no se reportan o nos acostumbramos a ellos. EcoAlertas empodera a los ciudadanos 
-        para actuar, haciendo barrios más limpios, seguros y habitables, una foto a la vez.
-      </p>
-    </div>
-  </section>
-
-  <!-- Captura / Demostración -->
-  <section id="demo" class="section">
-    <div class="container">
-      <h2>¿Cómo Funciona?</h2>
-      <img src="screenshot.png" alt="Captura de pantalla de EcoAlerta" class="demo-image" />
-    </div>
-  </section>
-
-  <!-- Llamada a la Acción -->
+  <!-- Newsletter -->
   <section id="registro" class="section cta">
     <div class="container">
-      <h2>¡Unite a nuestro early access!</h2>
+      <h2>Suscríbete al Newsletter</h2>
       <form action="https://formspree.io/f/yourformid" method="POST" class="signup-form">
-        <input type="email" name="email" placeholder="Tu correo electrónico" required />
-        <button type="submit" class="btn">Notifícame</button>
+        <input type="email" name="email" placeholder="Tu correo electrónico" required>
+        <button type="submit" class="btn">Enviar</button>
       </form>
     </div>
   </section>
 
-  <!-- Sobre / Contacto -->
+  <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>
-        EcoAlerta es una iniciativa civic‑tech independiente que busca mejorar 
-        el entorno urbano mediante reportes ciudadanos en tiempo real.  
-        Contactanos en <a href="mailto:contactoecoalertas@gmail.com">contactoecoalertas@gmail.com</a>
-      </p>
-      <p class="small">© 2025 EcoAlertas. Todos los derechos reservados.</p>
+      <p>EcoAlerta © 2025 | <a href="#">Política de Privacidad</a> | <a href="#">Términos</a></p>
     </div>
   </footer>
 </body>
