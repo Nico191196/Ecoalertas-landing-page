@@ -39,7 +39,6 @@ body {
 .hero .tagline {
   font-size: 1.2em;
   margin-bottom: 1.5em;
-  color: #43a047; /* Texto de la tagline en verde */
 }
 .hero .btn {
   background: #43a047;
