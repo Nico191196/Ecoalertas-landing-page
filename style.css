@@ -22,7 +22,7 @@ body {
 /* Hero */
 .hero {
   background: url('hero-bg.jpg') center/cover no-repeat;
-  color: #00ff00;
+  color: #008f39;
   text-align: center;
   padding: 6em 0;
 }
@@ -40,7 +40,7 @@ body {
 }
 .hero .btn {
   background: #43a047;
-  color: #00ff00;
+  color: #008f39;
   padding: 0.8em 2em;
   border-radius: 5px;
   text-decoration: none;
