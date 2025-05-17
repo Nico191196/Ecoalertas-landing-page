@@ -1,4 +1,133 @@
-/* Reset */
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: #f9f9f9;
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2em 0;
+}
+
+/* Hero */
+.hero {
+  background: url('hero-bg.jpg') center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 6em 0;
+}
+.hero .logo {
+  max-width: 100px;
+  margin-bottom: 1em;
+}
+.hero h1 {
+  font-size: 3em;
+  margin-bottom: 0.5em;
+}
+.hero .tagline {
+  font-size: 1.2em;
+  margin-bottom: 1.5em;
+}
+.hero .btn {
+  background: #43a047;
+  color: #fff;
+  padding: 0.8em 2em;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Sections */
+.section {
+  padding: 4em 0;
+  text-align: center;
+}
+.alt-bg {
+  background: #eef5f1;
+}
+
+/* How It Works */
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  margin-top: 2em;
+}
+@media (min-width: 600px) {
+  .steps {
+    flex-direction: row;
+  }
+}
+.step {
+  background: #fff;
+  padding: 2em;
+  border-radius: 8px;
+  flex: 1;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.step .icon {
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+}
+
+/* Demo Image */
+.demo-image {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-top: 1em;
+}
+
+/* CTA */
+.cta {
+  background: #43a047;
+  color: #fff;
+}
+.cta h2 {
+  margin-bottom: 1em;
+}
+.signup-form input {
+  padding: 0.8em;
+  width: 60%;
+  max-width: 300px;
+  border: none;
+  border-radius: 4px;
+  margin-right: 0.5em;
+}
+.signup-form button {
+  padding: 0.8em 1.5em;
+  border: none;
+  border-radius: 4px;
+  background: #2e7d32;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Footer */
+.footer {
+  background: #333;
+  color: #ddd;
+  text-align: center;
+  padding: 2em 0;
+}
+.footer a {
+  color: #43a047;
+  text-decoration: none;
+}
+.footer .small {
+  font-size: 0.9em;
+  margin-top: 1em;
+}/* Reset */
 *, *::before, *::after { margin:0; padding:0; box-sizing: border-box; }
 body { font-family: 'Segoe UI', sans-serif; line-height:1.6; background:#f9f9f9; color:#333; }
 .container { width:90%; max-width:1000px; margin:0 auto; padding:2em 0; }
