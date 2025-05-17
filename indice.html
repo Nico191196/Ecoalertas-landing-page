@@ -1,0 +1,89 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EcoAlertas</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Sección Hero -->
+  <header class="hero">
+    <div class="container">
+      <img src="logo.png" alt="Logotipo de EcoAlerta" class="logo" />
+      <h1>EcoAlerta</h1>
+      <p class="tagline">
+        Informa sobre basura, baches y peligros en tu ciudad con solo una foto. Nosotros le avisamos a las autoridades.
+      </p>
+      <a href="#registro" class="btn">Unirme a la lista de espera</a>
+    </div>
+  </header>
+
+  <!-- Cómo Funciona -->
+  <section id="como-funciona" class="section">
+    <div class="container">
+      <h2>Cómo Funciona</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="icon">📸</div>
+          <h3>Toma una Foto</h3>
+          <p>Captura un problema: montones de basura, tuberías rotas o cables expuestos.</p>
+        </div>
+        <div class="step">
+          <div class="icon">📍</div>
+          <h3>Geoetiquétalo</h3>
+          <p>Tu teléfono agrega la ubicación exacta automáticamente.</p>
+        </div>
+        <div class="step">
+          <div class="icon">🚀</div>
+          <h3>Envía la Alerta</h3>
+          <p>Reenviamos el reporte a la municipalidad y a la empresa correspondiente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Por Qué Importa -->
+  <section id="por-que-importa" class="section alt-bg">
+    <div class="container">
+      <h2>Por Qué Importa</h2>
+      <p>
+        Cada día, muchos problemas urbanos pasan desapercibidos, no se reportan o nos acostumbramos a ellos. EcoAlertas empodera a los ciudadanos 
+        para actuar, haciendo barrios más limpios, seguros y habitables, una foto a la vez.
+      </p>
+    </div>
+  </section>
+
+  <!-- Captura / Demostración -->
+  <section id="demo" class="section">
+    <div class="container">
+      <h2>Ve Cómo Funciona</h2>
+      <img src="screenshot.png" alt="Captura de pantalla de EcoAlerta" class="demo-image" />
+    </div>
+  </section>
+
+  <!-- Llamada a la Acción -->
+  <section id="registro" class="section cta">
+    <div class="container">
+      <h2>Obtén Acceso Anticipado</h2>
+      <form action="https://formspree.io/f/yourformid" method="POST" class="signup-form">
+        <input type="email" name="email" placeholder="Tu correo electrónico" required />
+        <button type="submit" class="btn">Notifícame</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Sobre / Contacto -->
+  <footer class="footer">
+    <div class="container">
+      <p>
+        EcoAlerta es una iniciativa civic‑tech independiente que busca mejorar 
+        el entorno urbano mediante reportes ciudadanos en tiempo real.  
+        Contáctanos en <a href="mailto:ecoalerta.app@gmail.com">ecoalerta.app@gmail.com</a>
+      </p>
+      <p class="small">© 2025 EcoAlerta. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+</body>
+</html>
