@@ -7,28 +7,39 @@
   <meta name="description" content="EcoAlertas: reporta problemas urbanos con una foto. Empoderamos ciudadanos para mejorar sus comunidades.">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    
     :root {
-      --primary-color: #2563eb;
-      --primary-dark: #1d4ed8;
-      --secondary-color: #10b981;
-      --accent-color: #f59e0b;
-      --text-dark: #1f2937;
+      --primary-color: #059669;
+      --primary-dark: #047857;
+      --secondary-color: #34d399;
+      --accent-color: #10b981;
+      --success-color: #22c55e;
+      --text-dark: #064e3b;
       --text-light: #6b7280;
-      --bg-light: #f9fafb;
+      --bg-light: #ecfdf5;
       --bg-white: #ffffff;
-      --border-color: #e5e7eb;
-      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      --border-color: #d1fae5;
+      --shadow: 0 4px 6px -1px rgba(5, 150, 105, 0.1);
+      --shadow-lg: 0 20px 25px -5px rgba(5, 150, 105, 0.15);
       --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      --gradient-subtle: linear-gradient(135deg, rgba(5, 150, 105, 0.05), rgba(52, 211, 153, 0.05));
       --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --bg-pattern-light: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="leaves" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M10 2c-2 0-4 2-4 4s2 4 4 4 4-2 4-4-2-4-4-4zm0 12c-2 0-4 2-4 4s2 4 4 4 4-2 4-4-2-4-4-4z" fill="%23059669" opacity="0.03"/></pattern></defs><rect width="100" height="100" fill="url(%23leaves)"/></svg>');
+      --bg-image-light: linear-gradient(135deg, rgba(236, 253, 245, 0.9), rgba(209, 250, 229, 0.8)), var(--bg-pattern-light);
     }
 
     [data-theme="dark"] {
-      --text-dark: #f9fafb;
-      --text-light: #d1d5db;
-      --bg-light: #111827;
-      --bg-white: #1f2937;
-      --border-color: #374151;
+      --text-dark: #ecfdf5;
+      --text-light: #a7f3d0;
+      --bg-light: #064e3b;
+      --bg-white: #065f46;
+      --border-color: #047857;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+      --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+      --gradient-subtle: linear-gradient(135deg, rgba(52, 211, 153, 0.1), rgba(5, 150, 105, 0.1));
+      --bg-pattern-dark: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="leaves-dark" x="0" y="0" width="25" height="25" patternUnits="userSpaceOnUse"><circle cx="12.5" cy="5" r="1.5" fill="%2334d399" opacity="0.05"/><circle cx="5" cy="12.5" r="1" fill="%2310b981" opacity="0.03"/><circle cx="20" cy="18" r="1.2" fill="%2322c55e" opacity="0.04"/></pattern></defs><rect width="100" height="100" fill="url(%23leaves-dark)"/></svg>');
+      --bg-image-dark: linear-gradient(135deg, rgba(6, 78, 59, 0.95), rgba(6, 95, 70, 0.9)), var(--bg-pattern-dark);
     }
 
     * {
@@ -42,11 +53,19 @@
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       line-height: 1.6;
       color: var(--text-dark);
       background: var(--bg-light);
+      background-image: var(--bg-image-light);
+      background-attachment: fixed;
+      background-size: cover;
       transition: var(--transition);
+      font-weight: 400;
+    }
+
+    [data-theme="dark"] body {
+      background-image: var(--bg-image-dark);
     }
 
     .container {
@@ -61,11 +80,15 @@
       top: 0;
       left: 0;
       right: 0;
-      background: var(--bg-white);
-      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px) saturate(180%);
       border-bottom: 1px solid var(--border-color);
       z-index: 1000;
       transition: var(--transition);
+    }
+
+    [data-theme="dark"] .header {
+      background: rgba(6, 95, 70, 0.85);
     }
 
     .header-content {
@@ -85,12 +108,14 @@
       width: 40px;
       height: 40px;
       background: var(--gradient);
-      border-radius: 50%;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
       color: white;
-      font-weight: bold;
+      font-weight: 700;
+      font-size: 0.9rem;
+      box-shadow: var(--shadow);
     }
 
     .nav-controls {
@@ -103,8 +128,8 @@
       background: var(--gradient);
       color: white;
       border: none;
-      padding: 10px 20px;
-      border-radius: 25px;
+      padding: 12px 24px;
+      border-radius: 12px;
       cursor: pointer;
       text-decoration: none;
       display: inline-flex;
@@ -112,17 +137,21 @@
       gap: 8px;
       transition: var(--transition);
       font-weight: 500;
+      font-family: 'Inter', sans-serif;
+      box-shadow: var(--shadow);
     }
 
     .btn:hover {
       transform: translateY(-2px);
       box-shadow: var(--shadow-lg);
+      filter: brightness(1.05);
     }
 
     .btn-outline {
-      background: transparent;
+      background: rgba(5, 150, 105, 0.1);
       color: var(--primary-color);
       border: 2px solid var(--primary-color);
+      backdrop-filter: blur(10px);
     }
 
     .btn-outline:hover {
@@ -131,18 +160,20 @@
     }
 
     .theme-toggle {
-      background: none;
-      border: none;
+      background: rgba(5, 150, 105, 0.1);
+      border: 1px solid var(--border-color);
       color: var(--text-dark);
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       cursor: pointer;
-      padding: 8px;
-      border-radius: 50%;
+      padding: 10px;
+      border-radius: 10px;
       transition: var(--transition);
+      backdrop-filter: blur(10px);
     }
 
     .theme-toggle:hover {
-      background: var(--bg-light);
+      background: rgba(5, 150, 105, 0.15);
+      transform: scale(1.05);
     }
 
     .menu-toggle {
@@ -159,14 +190,19 @@
     .sidebar {
       position: fixed;
       top: 0;
-      left: -300px;
-      width: 300px;
+      left: -320px;
+      width: 320px;
       height: 100vh;
-      background: var(--bg-white);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px) saturate(180%);
       border-right: 1px solid var(--border-color);
       z-index: 1100;
       transition: var(--transition);
       overflow-y: auto;
+    }
+
+    [data-theme="dark"] .sidebar {
+      background: rgba(6, 95, 70, 0.95);
     }
 
     .sidebar.active {
@@ -196,8 +232,9 @@
     }
 
     .sidebar-nav a:hover {
-      background: var(--bg-light);
+      background: var(--gradient-subtle);
       color: var(--primary-color);
+      transform: translateX(8px);
     }
 
     .overlay {
@@ -223,7 +260,7 @@
       background: var(--gradient);
       color: white;
       text-align: center;
-      padding: 120px 0 80px;
+      padding: 140px 0 100px;
       position: relative;
       overflow: hidden;
     }
@@ -235,8 +272,19 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-      opacity: 0.1;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="eco-pattern" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M15 5c-3 0-5 2-5 5 0 2 1 4 3 5-2 1-3 3-3 5 0 3 2 5 5 5s5-2 5-5c0-2-1-4-3-5 2-1 3-3 3-5 0-3-2-5-5-5z" fill="white" opacity="0.08"/><circle cx="8" cy="22" r="2" fill="white" opacity="0.05"/><circle cx="22" cy="8" r="1.5" fill="white" opacity="0.06"/></pattern></defs><rect width="100" height="100" fill="url(%23eco-pattern)"/></svg>');
+      opacity: 0.3;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -50px;
+      left: 0;
+      right: 0;
+      height: 100px;
+      background: var(--bg-light);
+      clip-path: ellipse(100% 100% at 50% 100%);
     }
 
     .hero-content {
@@ -245,33 +293,42 @@
     }
 
     .hero h1 {
-      font-size: 3.5rem;
-      font-weight: bold;
-      margin-bottom: 1rem;
+      font-size: 3.8rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
       animation: fadeInUp 1s ease-out;
+      letter-spacing: -0.02em;
     }
 
     .tagline {
-      font-size: 1.3rem;
-      margin-bottom: 2rem;
-      opacity: 0.9;
+      font-size: 1.4rem;
+      margin-bottom: 2.5rem;
+      opacity: 0.95;
       animation: fadeInUp 1s ease-out 0.2s both;
+      font-weight: 400;
     }
 
     .hero .btn {
       font-size: 1.1rem;
-      padding: 15px 30px;
+      padding: 16px 32px;
       animation: fadeInUp 1s ease-out 0.4s both;
+      font-weight: 600;
     }
 
     /* Metrics */
     .metrics {
-      background: var(--bg-white);
-      padding: 60px 0;
-      margin-top: -40px;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(20px) saturate(180%);
+      padding: 80px 0;
+      margin-top: -60px;
       position: relative;
       z-index: 2;
-      border-radius: 20px 20px 0 0;
+      border-radius: 24px 24px 0 0;
+      border: 1px solid var(--border-color);
+    }
+
+    [data-theme="dark"] .metrics {
+      background: rgba(6, 95, 70, 0.9);
     }
 
     .metrics-grid {
@@ -287,10 +344,14 @@
 
     .metric strong {
       display: block;
-      font-size: 2.5rem;
+      font-size: 3rem;
       color: var(--primary-color);
-      font-weight: bold;
-      margin-bottom: 10px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .metric span {
@@ -305,13 +366,20 @@
 
     .section h2 {
       text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 3rem;
+      font-size: 2.8rem;
+      margin-bottom: 3.5rem;
       color: var(--text-dark);
+      font-weight: 700;
+      letter-spacing: -0.02em;
     }
 
     .alt-bg {
-      background: var(--bg-white);
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(20px) saturate(180%);
+    }
+
+    [data-theme="dark"] .alt-bg {
+      background: rgba(6, 95, 70, 0.7);
     }
 
     /* Steps */
@@ -324,16 +392,23 @@
 
     .step {
       text-align: center;
-      padding: 40px 30px;
-      background: var(--bg-white);
-      border-radius: 20px;
+      padding: 50px 40px;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 24px;
       box-shadow: var(--shadow);
       transition: var(--transition);
+      border: 1px solid var(--border-color);
+    }
+
+    [data-theme="dark"] .step {
+      background: rgba(6, 95, 70, 0.8);
     }
 
     .step:hover {
-      transform: translateY(-10px);
+      transform: translateY(-12px);
       box-shadow: var(--shadow-lg);
+      border-color: var(--secondary-color);
     }
 
     .step .icon {
