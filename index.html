@@ -830,18 +830,6 @@
         </a>
       </div>
     </div>
-    <!-- Replace your current auth buttons with this -->
-<div class="auth-buttons" id="authButtons">
-    <button class="btn btn-primary" onclick="openModal('loginModal')">Login</button>
-    <button class="btn btn-secondary" onclick="openModal('signupModal')">Sign Up</button>
-</div>
-
-<!-- Add this new user menu (will show when logged in) -->
-<div class="auth-buttons hidden" id="userMenu">
-    <span id="welcomeText" style="margin-right: 15px;">Welcome!</span>
-    <button class="btn btn-primary" onclick="showProfile()">Profile</button>
-    <button class="btn btn-secondary" onclick="logout()">Logout</button>
-</div>
   </header>
 
   <!-- Sidebar -->
@@ -1522,86 +1510,10 @@
     a:focus {
       outline: 2px solid var(--primary-color);
       outline-offset: 2px;
-
-      <!-- Login Modal -->
-<div class="modal" id="loginModal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('loginModal')">&times;</span>
-        <h2>Welcome Back</h2>
-        <form id="loginForm">
-            <div class="form-group">
-                <label for="loginEmail">Email</label>
-                <input type="email" id="loginEmail" required>
-            </div>
-            <div class="form-group">
-                <label for="loginPassword">Password</label>
-                <input type="password" id="loginPassword" required>
-            </div>
-            <button type="submit" class="form-submit">Login</button>
-        </form>
-        <div class="switch-auth">
-            Don't have an account? <a href="#" onclick="switchModal('loginModal', 'signupModal')">Sign up</a>
-        </div>
-    </div>
-</div>
-
-<!-- Signup Modal -->
-<div class="modal" id="signupModal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('signupModal')">&times;</span>
-        <h2>Create Account</h2>
-        <form id="signupForm">
-            <div class="form-group">
-                <label for="signupName">Full Name</label>
-                <input type="text" id="signupName" required>
-            </div>
-            <div class="form-group">
-                <label for="signupEmail">Email</label>
-                <input type="email" id="signupEmail" required>
-            </div>
-            <div class="form-group">
-                <label for="signupPassword">Password</label>
-                <input type="password" id="signupPassword" required>
-            </div>
-            <button type="submit" class="form-submit">Create Account</button>
-        </form>
-        <div class="switch-auth">
-            Already have an account? <a href="#" onclick="switchModal('signupModal', 'loginModal')">Login</a>
-        </div>
-    </div>
-</div>
-
-<!-- Profile Section -->
-<section class="profile-section" id="profileSection">
-    <div class="profile-header">
-        <div class="profile-avatar" id="profileAvatar">JD</div>
-        <div class="profile-info">
-            <h2 id="profileName">John Doe</h2>
-            <p id="profileEmail">john@example.com</p>
-        </div>
-    </div>
-    
-    <div class="profile-details">
-        <div class="detail-card">
-            <h3>Member Since</h3>
-            <p id="memberSince">Today</p>
-        </div>
-        <div class="detail-card">
-            <h3>Profile Status</h3>
-            <p>Active Member</p>
-        </div>
-        <div class="detail-card">
-            <h3>Last Login</h3>
-            <p id="lastLogin">Just now</p>
-        </div>
-        <div class="detail-card">
-            <h3>Account Type</h3>
-            <p>Free User</p>
-        </div>
-    </div>
-    
-    <button class="btn btn-primary" onclick="showLanding()">Back to Home</button>
-</section>
+    }
+  </style>
+</body>
+</html>
     }
   </style>
 </body>
