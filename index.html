@@ -1,157 +1,163 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="light">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>EcoAlertas</title>
-  <meta name="description" content="EcoAlertas: reporta problemas urbanos con una foto. Empoderamos ciudadanos para mejorar sus comunidades.">
-
-  <!-- Fonts & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="css/styles.css">
+  <meta name="description" content="EcoAlertas: reportá problemas urbanos con una foto.">
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
 <body>
+
   <!-- Header -->
   <header>
-    <div class="container header">
-      <div class="logo-section">
-        <button id="menuToggle" class="menu-toggle"><i class="fas fa-bars"></i></button>
-        <img src="assets/logo.png" alt="EcoAlertas Logo" class="logo">
-        <h1>EcoAlertas</h1>
-      </div>
-      <div class="nav-controls">
-        <button id="themeToggle" class="btn-outline theme-toggle"><i class="fas fa-moon"></i></button>
-        <button id="loginBtn" class="btn-outline"><i class="fas fa-user"></i> Iniciar Sesión</button>
-        <a href="#registro" class="btn"><i class="fas fa-rocket"></i> Únete</a>
-      </div>
+    <div class="logo-section">
+      <img src="assets/logo.png" alt="EcoAlertas Logo" class="logo"/>
+      <h1>EcoAlertas</h1>
+    </div>
+    <div class="nav-controls">
+      <button id="themeToggle" class="btn-outline"><i class="fas fa-moon"></i></button>
+      <button id="loginBtn" class="btn-outline"><i class="fas fa-user"></i> Iniciar Sesión</button>
     </div>
   </header>
 
-  <!-- Sidebar -->
-  <nav id="sidebar" class="sidebar">
-    <div class="sidebar-header">
-      <div class="logo-section">
-        <img src="assets/logo.png" alt="EcoAlertas Logo" class="logo">
-        <span>EcoAlertas</span>
-      </div>
-      <button id="closeSidebar" class="close-btn"><i class="fas fa-times"></i></button>
-    </div>
-    <div class="sidebar-nav">
-      <a href="#como-funciona"><i class="fas fa-info-circle"></i> Cómo Funciona</a>
-      <a href="#testimonios"><i class="fas fa-comments"></i> Testimonios</a>
-      <a href="#aliados"><i class="fas fa-handshake"></i> Aliados</a>
-      <a href="#video"><i class="fas fa-play-circle"></i> Video</a>
-      <a href="#noticias"><i class="fas fa-newspaper"></i> Noticias</a>
-      <a href="#faq"><i class="fas fa-question-circle"></i> FAQ</a>
-      <a href="#registro"><i class="fas fa-envelope"></i> Newsletter</a>
-    </div>
-  </nav>
-  <div id="overlay" class="overlay"></div>
-
-  <!-- Hero Section -->
+  <!-- Hero -->
   <section class="hero">
     <div class="container">
-      <h1>Cuida tu ciudad con una foto</h1>
-      <p class="tagline">Empodera a tu comunidad reportando problemas urbanos.</p>
-      <a href="#registro" class="btn"><i class="fas fa-rocket"></i> Enviar alerta</a>
+      <h2>Cuida tu ciudad con una foto</h2>
+      <p>Reportá basura, baches, cables rotos, aguas servidas y más.</p>
+      <a href="#registro" class="btn"><i class="fas fa-rocket"></i> Únete ahora</a>
     </div>
   </section>
 
-  <!-- Cómo Funciona -->
-  <section id="como-funciona" class="section container">
-    <h2>Cómo Funciona</h2>
-    <div class="steps">
-      <div class="step"><i class="fas fa-camera-retro icon"></i><h3>Captura</h3><p>Fotografí­a el problema urbano.</p></div>
-      <div class="step"><i class="fas fa-map-marker-alt icon"></i><h3>Geoetiqueta</h3><p>Se agrega la ubicación automáticamente.</p></div>
-      <div class="step"><i class="fas fa-paper-plane icon"></i><h3>Envía</h3><p>Tu reporte llega a las autoridades.</p></div>
+  <!-- Métricas -->
+  <section class="metrics container">
+    <div class="card">
+      <h2>3500+</h2>
+      <p>Alertas enviadas</p>
+    </div>
+    <div class="card">
+      <h2>12</h2>
+      <p>Municipios activos</p>
+    </div>
+    <div class="card">
+      <h2>4.8/5</h2>
+      <p>Usuarios satisfechos</p>
     </div>
   </section>
 
-  <!-- Testimonios -->
-  <section id="testimonios" class="section alt-bg container">
-    <h2>Testimonios</h2>
-    <div class="cards">
-      <blockquote>"EcoAlertas transformó mi barrio."<footer>- Ana, Comodoro Rivadavia</footer></blockquote>
-      <blockquote>"Fácil y eficaz para voluntarios ambientales."<footer>- Juan, Bariloche</footer></blockquote>
+  <!-- Cómo funciona -->
+  <section class="container section">
+    <h2>¿Cómo funciona?</h2>
+    <div class="metrics">
+      <div class="card">
+        <h3>📸 Capturá</h3>
+        <p>Fotografiá el problema urbano</p>
+      </div>
+      <div class="card">
+        <h3>📍 Geoetiquetá</h3>
+        <p>Tu celular agrega la ubicación</p>
+      </div>
+      <div class="card">
+        <h3>🚀 Reportá</h3>
+        <p>La alerta llega a las autoridades</p>
+      </div>
     </div>
   </section>
 
-  <!-- Aliados -->
-  <section id="aliados" class="section container">
-    <h2>Aliados</h2>
-    <div class="logos">
-      <img src="assets/municipalidad1.png" alt="Municipalidad">
-      <img src="assets/ongverde.png" alt="ONG Verde">
-      <img src="assets/ecocorp.png" alt="EcoCorp">
-    </div>
-  </section>
-
-  <!-- Video -->
-  <section id="video" class="section container video-wrapper">
-    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="EcoAlertas en Acción" allowfullscreen></iframe>
-  </section>
-
-  <!-- Noticias -->
-  <section id="noticias" class="section alt-bg container">
-    <h2>Noticias</h2>
-    <div class="cards">
-      <article><h3>EcoAlertas crece</h3><p>Más municipios conectados.</p></article>
-      <article><h3>Tips de reporte</h3><p>Mejora la calidad de tus fotos.</p></article>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq" class="section container">
-    <h2>Preguntas Frecuentes</h2>
-    <div class="accordion">
-      <div class="item"><button class="accordion-btn">¿Cómo funciona el GPS?</button><div class="panel"><p>Se usan coordenadas precisas.</p></div></div>
-      <div class="item"><button class="accordion-btn">¿Mis datos son privados?</button><div class="panel"><p>Sí, nunca se comparten.</p></div></div>
-      <div class="item"><button class="accordion-btn">¿Es gratis?</button><div class="panel"><p>Totalmente gratuito.</p></div></div>
-    </div>
-  </section>
-
-  <!-- Registro Newsletter -->
-  <section id="registro" class="section cta container">
-    <h2>Suscríbete al Newsletter</h2>
-    <form id="newsletterForm" class="signup-form">
-      <input type="email" name="email" placeholder="Tu correo" required>
+  <!-- Newsletter -->
+  <section id="registro" class="container section">
+    <h2>Suscribite al Newsletter</h2>
+    <form id="newsletterForm">
+      <input type="email" name="email" placeholder="Tu correo" required />
       <button type="submit" class="btn">Enviar</button>
     </form>
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; 2025 EcoAlertas | <a href="#">Política de Privacidad</a> | <a href="#">Términos</a></p>
-    </div>
+  <footer class="container">
+    <p>EcoAlertas © 2025 • <a href="#">Privacidad</a> • <a href="#">Términos</a></p>
   </footer>
 
   <!-- Login Modal -->
-  <div id="loginModal" class="modal">
+  <div class="modal" id="loginModal">
     <div class="modal-content">
-      <button id="closeModal" class="close-btn"><i class="fas fa-times"></i></button>
       <h2>Iniciar Sesión</h2>
       <form id="loginForm">
-        <input type="email" id="email" name="email" placeholder="Correo" required>
-        <input type="password" id="password" name="password" placeholder="Contraseña" required>
-        <button type="submit" class="btn">Ingresar</button>
+        <input type="email" id="email" name="email" placeholder="Correo electrónico" required />
+        <input type="password" id="password" name="password" placeholder="Contraseña" required />
+        <button type="submit" class="btn">
+          <span class="btn-text">Iniciar Sesión</span>
+          <div class="loading-spinner hidden"></div>
+        </button>
       </form>
+      <p><a href="#" onclick="showNotification('Función no disponible')">¿Olvidaste tu contraseña?</a></p>
     </div>
   </div>
 
   <!-- Notification -->
-  <div id="notification" class="notification"><span id="notificationText"></span><button class="close-btn" onclick="hideNotification()"><i class="fas fa-times"></i></button></div>
+  <div class="notification" id="notification">
+    <span id="notificationText"></span>
+  </div>
 
-  <!-- Scripts -->
+  <!-- Firebase + Scripts -->
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
   <script src="js/firebase-config.js"></script>
-  <script src="js/auth.js"></script>
-  <script src="js/api.js"></script>
-  <script src="js/dashboard.js"></script>
-  <script src="js/main.js"></script>
+  <script>
+    // Login handling
+    const loginModal = document.getElementById('loginModal');
+    const loginBtn = document.getElementById('loginBtn');
+    const closeModal = () => loginModal.classList.remove('active');
+    const openModal = () => loginModal.classList.add('active');
+
+    loginBtn.addEventListener('click', openModal);
+
+    document.getElementById('loginForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const email = e.target.email.value;
+      const password = e.target.password.value;
+      const spinner = e.target.querySelector('.loading-spinner');
+      const text = e.target.querySelector('.btn-text');
+
+      spinner.classList.remove('hidden');
+      text.textContent = 'Iniciando...';
+
+      auth.signInWithEmailAndPassword(email, password)
+        .then(() => {
+          window.location.href = 'dashboard.html';
+        })
+        .catch(err => {
+          showNotification('Error: ' + err.message);
+        })
+        .finally(() => {
+          spinner.classList.add('hidden');
+          text.textContent = 'Iniciar Sesión';
+        });
+    });
+
+    // Notifications
+    function showNotification(msg) {
+      const n = document.getElementById('notification');
+      const t = document.getElementById('notificationText');
+      t.textContent = msg;
+      n.style.display = 'block';
+      setTimeout(() => n.style.display = 'none', 4000);
+    }
+
+    // Newsletter (simulado)
+    document.getElementById('newsletterForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      showNotification('Gracias por suscribirte.');
+      this.reset();
+    });
+
+    // Theme toggle
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      const isDark = document.body.getAttribute('data-theme') === 'dark';
+      document.body.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    });
+  </script>
 </body>
 </html>
