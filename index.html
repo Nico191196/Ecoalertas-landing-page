@@ -44,6 +44,11 @@
   <link rel="preload" href="css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
   
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
@@ -442,4 +447,513 @@
             </div>
             
             <div class="text-center mt-3">
-              <a href="#" class="text-muted text-decoration-none">¿Olvidaste tu contraseña?
+              <a href="#" class="text-muted text-decoration-none">¿Olvidaste tu contraseña?</a>
+            </div>
+          </form>
+          
+          <!-- Error/Success Messages -->
+          <div id="loginError" class="alert alert-danger d-none mt-3" role="alert"></div>
+          <div id="loginSuccess" class="alert alert-success d-none mt-3" role="alert"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Newsletter Modal -->
+  <div class="modal fade" id="newsletterModal" tabindex="-1" aria-labelledby="newsletterModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow-lg">
+        <div class="modal-header border-0 pb-0">
+          <h5 class="modal-title fw-bold" id="newsletterModalLabel">Suscríbete al Newsletter</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <p class="text-muted mb-4">Mantente al día con las últimas noticias ambientales y actualizaciones de nuestra plataforma.</p>
+          
+          <form id="newsletterForm" class="needs-validation" novalidate>
+            <div class="mb-3">
+              <label for="newsletterName" class="form-label">Nombre *</label>
+              <input type="text" 
+                     class="form-control form-control-lg" 
+                     id="newsletterName" 
+                     name="name"
+                     required 
+                     autocomplete="name"
+                     minlength="2">
+              <div class="invalid-feedback" role="alert">
+                Por favor ingresa tu nombre (mínimo 2 caracteres)
+              </div>
+            </div>
+            
+            <div class="mb-3">
+              <label for="newsletterEmail" class="form-label">Correo Electrónico *</label>
+              <input type="email" 
+                     class="form-control form-control-lg" 
+                     id="newsletterEmail" 
+                     name="email"
+                     required 
+                     autocomplete="email">
+              <div class="invalid-feedback" role="alert">
+                Por favor ingresa un correo válido
+              </div>
+            </div>
+            
+            <div class="mb-3">
+              <label for="newsletterInterests" class="form-label">Intereses (Opcional)</label>
+              <select class="form-select form-select-lg" id="newsletterInterests" name="interests">
+                <option value="">Selecciona tus intereses</option>
+                <option value="calidad-aire">Calidad del Aire</option>
+                <option value="cambio-climatico">Cambio Climático</option>
+                <option value="biodiversidad">Biodiversidad</option>
+                <option value="energia-renovable">Energía Renovable</option>
+                <option value="sostenibilidad">Sostenibilidad</option>
+                <option value="todos">Todos los temas</option>
+              </select>
+            </div>
+            
+            <div class="form-check mb-4">
+              <input class="form-check-input" type="checkbox" id="newsletterConsent" required>
+              <label class="form-check-label" for="newsletterConsent">
+                Acepto recibir información por correo electrónico y entiendo que puedo cancelar mi suscripción en cualquier momento *
+              </label>
+              <div class="invalid-feedback" role="alert">
+                Debes aceptar para continuar
+              </div>
+            </div>
+            
+            <div class="d-grid">
+              <button type="submit" class="btn btn-success btn-lg" id="newsletterBtn">
+                <span class="btn-text">Suscribirse</span>
+                <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+              </button>
+            </div>
+          </form>
+          
+          <!-- Error/Success Messages -->
+          <div id="newsletterError" class="alert alert-danger d-none mt-3" role="alert"></div>
+          <div id="newsletterSuccess" class="alert alert-success d-none mt-3" role="alert"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading Overlay -->
+  <div id="loadingOverlay" class="d-none position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex justify-content-center align-items-center" style="z-index: 9999;">
+    <div class="text-center text-white">
+      <div class="spinner-border spinner-border-lg text-success mb-3" role="status">
+        <span class="visually-hidden">Cargando...</span>
+      </div>
+      <p class="fs-5">Accediendo al dashboard...</p>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js" defer></script>
+  
+  <!-- Custom JavaScript -->
+  <script>
+    // Firebase Configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyBvOkBjG2s6pE7f1nOLKvD4tJdKtMgL8Sw", // Reemplazar con tu API key
+      authDomain: "ecoalertas-demo.firebaseapp.com", // Reemplazar con tu dominio
+      projectId: "ecoalertas-demo", // Reemplazar con tu project ID
+      storageBucket: "ecoalertas-demo.appspot.com",
+      messagingSenderId: "123456789012",
+      appId: "1:123456789012:web:abcdef123456789012345"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    // UI Helper Functions
+    class UIHelper {
+      static showLoading(button) {
+        const spinner = button.querySelector('.spinner-border');
+        const text = button.querySelector('.btn-text');
+        
+        if (spinner && text) {
+          spinner.classList.remove('d-none');
+          text.textContent = 'Procesando...';
+          button.disabled = true;
+        }
+      }
+
+      static hideLoading(button, originalText) {
+        const spinner = button.querySelector('.spinner-border');
+        const text = button.querySelector('.btn-text');
+        
+        if (spinner && text) {
+          spinner.classList.add('d-none');
+          text.textContent = originalText;
+          button.disabled = false;
+        }
+      }
+
+      static showError(elementId, message) {
+        const errorEl = document.getElementById(elementId);
+        if (errorEl) {
+          errorEl.textContent = message;
+          errorEl.classList.remove('d-none');
+          setTimeout(() => errorEl.classList.add('d-none'), 5000);
+        }
+      }
+
+      static showSuccess(elementId, message) {
+        const successEl = document.getElementById(elementId);
+        if (successEl) {
+          successEl.textContent = message;
+          successEl.classList.remove('d-none');
+          setTimeout(() => successEl.classList.add('d-none'), 5000);
+        }
+      }
+
+      static showLoadingOverlay() {
+        document.getElementById('loadingOverlay').classList.remove('d-none');
+      }
+
+      static hideLoadingOverlay() {
+        document.getElementById('loadingOverlay').classList.add('d-none');
+      }
+    }
+
+    // Authentication Service
+    class AuthService {
+      static async signInWithEmail(email, password) {
+        try {
+          const userCredential = await auth.signInWithEmailAndPassword(email, password);
+          return { success: true, user: userCredential.user };
+        } catch (error) {
+          return { success: false, error: this.getErrorMessage(error.code) };
+        }
+      }
+
+      static async signInWithGoogle() {
+        try {
+          const provider = new firebase.auth.GoogleAuthProvider();
+          provider.addScope('email');
+          provider.addScope('profile');
+          
+          const result = await auth.signInWithPopup(provider);
+          return { success: true, user: result.user };
+        } catch (error) {
+          if (error.code === 'auth/popup-closed-by-user') {
+            return { success: false, error: 'Inicio de sesión cancelado' };
+          }
+          return { success: false, error: this.getErrorMessage(error.code) };
+        }
+      }
+
+      static getErrorMessage(errorCode) {
+        const errorMessages = {
+          'auth/user-not-found': 'No existe una cuenta con este correo electrónico',
+          'auth/wrong-password': 'Contraseña incorrecta',
+          'auth/invalid-email': 'Correo electrónico inválido',
+          'auth/user-disabled': 'Esta cuenta ha sido deshabilitada',
+          'auth/too-many-requests': 'Demasiados intentos fallidos. Inténtalo más tarde',
+          'auth/network-request-failed': 'Error de conexión. Verifica tu internet',
+          'auth/weak-password': 'La contraseña debe tener al menos 6 caracteres'
+        };
+        
+        return errorMessages[errorCode] || 'Error de autenticación. Inténtalo de nuevo';
+      }
+
+      static async signOut() {
+        try {
+          await auth.signOut();
+          return { success: true };
+        } catch (error) {
+          return { success: false, error: 'Error al cerrar sesión' };
+        }
+      }
+    }
+
+    // Newsletter Service
+    class NewsletterService {
+      static async subscribe(data) {
+        try {
+          // Guardar en Firestore
+          await db.collection('newsletter_subscribers').add({
+            ...data,
+            subscribedAt: firebase.firestore.FieldValue.serverTimestamp(),
+            status: 'active'
+          });
+
+          // Aquí puedes integrar con servicios externos como Mailchimp, SendGrid, etc.
+          // await this.sendToExternalService(data);
+
+          return { success: true };
+        } catch (error) {
+          console.error('Newsletter subscription error:', error);
+          return { success: false, error: 'Error al suscribirse. Inténtalo de nuevo' };
+        }
+      }
+
+      // Ejemplo de integración con Mailchimp (comentado)
+      /*
+      static async sendToExternalService(data) {
+        try {
+          const response = await fetch('/api/newsletter/subscribe', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+          });
+          
+          if (!response.ok) {
+            throw new Error('External service error');
+          }
+          
+          return await response.json();
+        } catch (error) {
+          console.error('External newsletter service error:', error);
+          throw error;
+        }
+      }
+      */
+    }
+
+    // Form Validation
+    class FormValidator {
+      static validateForm(form) {
+        form.classList.add('was-validated');
+        return form.checkValidity();
+      }
+
+      static sanitizeInput(input) {
+        return input.trim().replace(/[<>]/g, '');
+      }
+
+      static validateEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+      }
+    }
+
+    // Event Listeners
+    document.addEventListener('DOMContentLoaded', function() {
+      // Login Form Handler
+      const loginForm = document.getElementById('loginForm');
+      const loginBtn = document.getElementById('loginBtn');
+      
+      loginForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        if (!FormValidator.validateForm(this)) {
+          return;
+        }
+
+        const email = FormValidator.sanitizeInput(document.getElementById('loginEmail').value);
+        const password = document.getElementById('loginPassword').value;
+
+        UIHelper.showLoading(loginBtn);
+
+        const result = await AuthService.signInWithEmail(email, password);
+        
+        UIHelper.hideLoading(loginBtn, 'Iniciar Sesión');
+
+        if (result.success) {
+          UIHelper.showSuccess('loginSuccess', '¡Inicio de sesión exitoso! Redirigiendo...');
+          
+          // Cerrar modal y mostrar overlay de carga
+          const modal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
+          modal.hide();
+          
+          UIHelper.showLoadingOverlay();
+          
+          // Simular redirección al dashboard (reemplazar con tu URL)
+          setTimeout(() => {
+            window.location.href = 'dashboard.html'; // Cambia por tu URL del dashboard
+          }, 2000);
+        } else {
+          UIHelper.showError('loginError', result.error);
+        }
+      });
+
+      // Google Login Handler
+      const googleLoginBtn = document.getElementById('googleLoginBtn');
+      googleLoginBtn.addEventListener('click', async function() {
+        UIHelper.showLoading(this);
+
+        const result = await AuthService.signInWithGoogle();
+        
+        UIHelper.hideLoading(this, 'Continuar con Google');
+
+        if (result.success) {
+          UIHelper.showSuccess('loginSuccess', '¡Inicio de sesión exitoso! Redirigiendo...');
+          
+          const modal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
+          modal.hide();
+          
+          UIHelper.showLoadingOverlay();
+          
+          setTimeout(() => {
+            window.location.href = 'dashboard.html'; // Cambia por tu URL del dashboard
+          }, 2000);
+        } else {
+          UIHelper.showError('loginError', result.error);
+        }
+      });
+
+      // Newsletter Form Handler
+      const newsletterForm = document.getElementById('newsletterForm');
+      const newsletterBtn = document.getElementById('newsletterBtn');
+      
+      newsletterForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        if (!FormValidator.validateForm(this)) {
+          return;
+        }
+
+        const formData = {
+          name: FormValidator.sanitizeInput(document.getElementById('newsletterName').value),
+          email: FormValidator.sanitizeInput(document.getElementById('newsletterEmail').value),
+          interests: document.getElementById('newsletterInterests').value
+        };
+
+        // Validación adicional de email
+        if (!FormValidator.validateEmail(formData.email)) {
+          UIHelper.showError('newsletterError', 'Por favor ingresa un correo electrónico válido');
+          return;
+        }
+
+        UIHelper.showLoading(newsletterBtn);
+
+        const result = await NewsletterService.subscribe(formData);
+        
+        UIHelper.hideLoading(newsletterBtn, 'Suscribirse');
+
+        if (result.success) {
+          UIHelper.showSuccess('newsletterSuccess', '¡Suscripción exitosa! Recibirás nuestro newsletter pronto.');
+          newsletterForm.reset();
+          newsletterForm.classList.remove('was-validated');
+          
+          // Cerrar modal después de 3 segundos
+          setTimeout(() => {
+            const modal = bootstrap.Modal.getInstance(document.getElementById('newsletterModal'));
+            modal.hide();
+          }, 3000);
+        } else {
+          UIHelper.showError('newsletterError', result.error);
+        }
+      });
+
+      // Auth State Observer
+      auth.onAuthStateChanged(function(user) {
+        if (user) {
+          console.log('Usuario autenticado:', user.email);
+          // Opcional: actualizar UI para usuario logueado
+          updateUIForLoggedUser(user);
+        } else {
+          console.log('Usuario no autenticado');
+        }
+      });
+
+      // Newsletter buttons in hero and CTA sections
+      const heroNewsletterBtn = document.querySelector('[data-bs-target="#newsletterModal"]');
+      const ctaNewsletterBtn = document.querySelector('.btn-light[data-bs-toggle="modal"]');
+      
+      [heroNewsletterBtn, ctaNewsletterBtn].forEach(btn => {
+        if (btn) {
+          btn.addEventListener('click', function() {
+            // Pre-llenar email si el usuario está logueado
+            const user = auth.currentUser;
+            if (user && user.email) {
+              document.getElementById('newsletterEmail').value = user.email;
+              document.getElementById('newsletterName').value = user.displayName || '';
+            }
+          });
+        }
+      });
+    });
+
+    // Update UI for logged user (optional)
+    function updateUIForLoggedUser(user) {
+      // Cambiar botón de "Iniciar Sesión" por "Dashboard" o nombre del usuario
+      const loginButtons = document.querySelectorAll('[data-bs-target="#loginModal"]');
+      loginButtons.forEach(btn => {
+        btn.textContent = 'Ir al Dashboard';
+        btn.removeAttribute('data-bs-target');
+        btn.removeAttribute('data-bs-toggle');
+        btn.addEventListener('click', function() {
+          window.location.href = 'dashboard.html';
+        });
+      });
+    }
+
+    // Error handling for network issues
+    window.addEventListener('online', function() {
+      console.log('Conexión restaurada');
+    });
+
+    window.addEventListener('offline', function() {
+      console.log('Sin conexión a internet');
+      UIHelper.showError('loginError', 'Sin conexión a internet. Verifica tu conexión.');
+    });
+  </script>
+
+  <style>
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 6px;
+      background: #000;
+      color: #fff;
+      padding: 8px;
+      text-decoration: none;
+      border-radius: 4px;
+      z-index: 10000;
+    }
+
+    .skip-link:focus {
+      top: 6px;
+    }
+
+    .feature-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1) !important;
+    }
+
+    .min-vh-75 {
+      min-height: 75vh;
+    }
+
+    .hover-text-white:hover {
+      color: white !important;
+    }
+
+    .z-index-top {
+      z-index: 1050;
+    }
+
+    .btn:focus {
+      box-shadow: 0 0 0 0.2rem rgba(34, 197, 94, 0.25);
+    }
+
+    .form-control:focus {
+      border-color: #22c55e;
+      box-shadow: 0 0 0 0.2rem rgba(34, 197, 94, 0.25);
+    }
+
+    @media (max-width: 768px) {
+      .display-4 {
+        font-size: 2.5rem;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+      }
+      
+      .cta-buttons .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+      }
+    }
+  </style>
