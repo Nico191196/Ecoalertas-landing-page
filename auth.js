@@ -6,6 +6,10 @@ auth.onAuthStateChanged(user => {
     window.location.href = "index.html";
   }
 });
+auth.onAuthStateChanged(user => {
+  if (!user) return window.location.href = 'index.html';
+  document.getElementById('userEmail').textContent = user.email;
+});
 
 function logout() {
   auth.signOut().then(() => {
