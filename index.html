@@ -6,129 +6,168 @@
   <title>EcoAlertas</title>
   <meta name="description" content="EcoAlertas: reportá problemas urbanos con una foto.">
 
-  <!-- Estilos -->
-  <link rel="stylesheet" href="css/styles.css"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-</head>
-<body>
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoYz1DF6fJpGx+OiYp1ZG2zpz0i6hSTz0nNQ2Q5rZNIyY/"
+    crossorigin="anonymous"
+  >
 
-  <!-- Header -->
-  <header class="header">
-    <div class="header-content container">
-      <div class="logo-section">
-        <img src="assets/logo.png" alt="EcoAlertas Logo" class="logo"/>
-        <h1>EcoAlertas</h1>
-      </div>
-      <div class="nav-controls">
-        <button id="themeToggle" class="btn-outline">
-          <i class="fas fa-moon"></i>
-        </button>
-        <button id="loginBtn" class="btn-outline">
-          <i class="fas fa-user"></i> Iniciar Sesión
-        </button>
-        <a href="#registro" class="btn">
-          <i class="fas fa-rocket"></i> Únete
-        </a>
+  <!-- Tu CSS custom -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-theme="light">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="assets/logo.png" alt="EcoAlertas" width="40" height="40" class="me-2">
+        EcoAlertas
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#hero">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#features">Cómo Funciona</a></li>
+          <li class="nav-item"><a class="nav-link" href="#registro">Newsletter</a></li>
+        </ul>
+        <button id="loginBtn" class="btn btn-outline-light ms-lg-3">Iniciar Sesión</button>
       </div>
     </div>
-  </header>
+  </nav>
 
   <!-- Hero -->
-  <section class="hero">
+  <section id="hero" class="bg-success text-white text-center py-5">
     <div class="container">
-      <h2>Cuida tu ciudad con una foto</h2>
-      <p>Reportá basura, baches, cables rotos, aguas servidas y más.</p>
-      <a href="#registro" class="btn">
-        <i class="fas fa-rocket"></i> Únete ahora
-      </a>
+      <h1 class="display-4 fw-bold">Cuida tu ciudad con una foto</h1>
+      <p class="lead mb-4">Reportá basura, baches, luminarias y más en segundos.</p>
+      <a href="#registro" class="btn btn-light btn-lg">Únete ahora</a>
     </div>
   </section>
 
   <!-- Métricas -->
-  <section class="metrics container">
-    <div class="card">
-      <h2>3500+</h2>
-      <p>Alertas enviadas</p>
-    </div>
-    <div class="card">
-      <h2>12</h2>
-      <p>Municipios activos</p>
-    </div>
-    <div class="card">
-      <h2>4.8/5</h2>
-      <p>Usuarios satisfechos</p>
+  <section id="metrics" class="py-5">
+    <div class="container">
+      <div class="row g-4 text-center">
+        <div class="col-6 col-md-4">
+          <div class="card border-0 shadow-sm p-4">
+            <h2 class="fw-bold text-success">3500+</h2>
+            <p class="text-muted">Alertas enviadas</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-4">
+          <div class="card border-0 shadow-sm p-4">
+            <h2 class="fw-bold text-success">12</h2>
+            <p class="text-muted">Municipios activos</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-4">
+          <div class="card border-0 shadow-sm p-4">
+            <h2 class="fw-bold text-success">4.8/5</h2>
+            <p class="text-muted">Usuarios satisfechos</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Cómo Funciona -->
-  <section class="container section">
-    <h2>¿Cómo funciona?</h2>
-    <div class="metrics">
-      <div class="card">
-        <h3>📸 Capturá</h3>
-        <p>Fotografiá el problema urbano</p>
-      </div>
-      <div class="card">
-        <h3>📍 Geoetiquetá</h3>
-        <p>Tu celular agrega la ubicación</p>
-      </div>
-      <div class="card">
-        <h3>🚀 Reportá</h3>
-        <p>La alerta llega a las autoridades</p>
+  <section id="features" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-5">¿Cómo funciona?</h2>
+      <div class="row g-4">
+        <div class="col-md-4 text-center">
+          <div class="fs-1 mb-3">📸</div>
+          <h5>Capturá</h5>
+          <p>Fotografiá el problema urbano</p>
+        </div>
+        <div class="col-md-4 text-center">
+          <div class="fs-1 mb-3">📍</div>
+          <h5>Geoetiquetá</h5>
+          <p>Tu celular agrega la ubicación</p>
+        </div>
+        <div class="col-md-4 text-center">
+          <div class="fs-1 mb-3">🚀</div>
+          <h5>Reportá</h5>
+          <p>La alerta llega a las autoridades</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Newsletter -->
-  <section id="registro" class="container section">
-    <h2>Suscribite al Newsletter</h2>
-    <form id="newsletterForm" class="signup-form">
-      <input type="email" name="email" placeholder="Tu correo electrónico" required />
-      <button type="submit" class="btn">
-        <span class="btn-text">Enviar</span>
-        <div class="loading-spinner hidden"></div>
-      </button>
-    </form>
+  <section id="registro" class="py-5 text-center">
+    <div class="container">
+      <h2 class="mb-4">Suscribite al Newsletter</h2>
+      <form id="newsletterForm" class="row justify-content-center g-2">
+        <div class="col-auto">
+          <input type="email" name="email" class="form-control form-control-lg" placeholder="Tu correo electrónico" required>
+        </div>
+        <div class="col-auto">
+          <button type="submit" class="btn btn-success btn-lg">Enviar</button>
+        </div>
+      </form>
+    </div>
   </section>
 
   <!-- Footer -->
-  <footer class="footer container">
-    <p>EcoAlertas © 2025 &bull; <a href="#">Privacidad</a> &bull; <a href="#">Términos</a></p>
+  <footer class="py-4 bg-success text-white text-center">
+    <p class="mb-0">EcoAlertas © 2025 • <a href="#" class="text-white">Privacidad</a> • <a href="#" class="text-white">Términos</a></p>
   </footer>
 
   <!-- Login Modal -->
-  <div class="modal" id="loginModal">
-    <div class="modal-content">
-      <h2>Iniciar Sesión</h2>
-      <form id="loginForm">
-        <div class="form-group">
-          <input type="email" name="email" placeholder="Correo electrónico" required />
+  <div class="modal fade" id="loginModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Iniciar Sesión</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
-        <div class="form-group">
-          <input type="password" name="password" placeholder="Contraseña" required />
+        <div class="modal-body">
+          <form id="loginForm">
+            <div class="mb-3">
+              <input type="email" name="email" class="form-control" placeholder="Correo electrónico" required>
+            </div>
+            <div class="mb-3">
+              <input type="password" name="password" class="form-control" placeholder="Contraseña" required>
+            </div>
+            <button type="submit" class="btn btn-success w-100">
+              <span class="btn-text">Iniciar Sesión</span>
+              <div class="spinner-border spinner-border-sm text-light loading-spinner d-none" role="status"></div>
+            </button>
+          </form>
         </div>
-        <button type="submit" class="btn">
-          <span class="btn-text">Iniciar Sesión</span>
-          <div class="loading-spinner hidden"></div>
-        </button>
-      </form>
-      <p class="modal-footer">
-        <a href="#" onclick="showNotification('Función no disponible')">¿Olvidaste tu contraseña?</a>
-      </p>
+      </div>
     </div>
   </div>
 
   <!-- Toast Notification -->
-  <div class="notification" id="notification">
-    <span id="notificationText"></span>
+  <div class="position-fixed top-0 end-0 p-3" style="z-index: 1055;">
+    <div id="notification" class="toast align-items-center text-white bg-success border-0" role="alert">
+      <div class="d-flex">
+        <div class="toast-body" id="notificationText"></div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+      </div>
+    </div>
   </div>
 
-  <!-- Firebase SDKs y Configuración -->
+  <!-- Bootstrap Bundle JS -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ppfLkzY6P6kdANSBXm4GIfOqX2o0wP3olq0zrN2eJxi/BVltUQK4KULOyZQipAN/"
+    crossorigin="anonymous"
+  ></script>
+
+  <!-- Firebase SDKs -->
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
-  <script src="js/firebase-config.js"></script>
 
-  <!-- Lógica de UI y Login -->
+  <!-- Config & Logic -->
+  <script src="js/firebase-config.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
