@@ -1,0 +1,60 @@
+/* css/style.css */
+
+/* ==== Branding Variables ==== */
+:root {
+  --brand-success: #059669;
+  --brand-success-dark: #047857;
+  --brand-secondary: #34d399;
+  --text-dark: #064e3b;
+  --text-light: #6b7280;
+  --bg-light: #f4fdf9;
+}
+
+/* ==== Base Typography ==== */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+}
+
+/* ==== Hero Customizaciones ==== */
+#hero {
+  background: linear-gradient(135deg, var(--brand-success), var(--brand-secondary));
+}
+#hero h1 {
+  text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ==== Card Shadows ==== */
+.card {
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* ==== Tabla ==== */
+.table-success {
+  background-color: var(--brand-success) !important;
+}
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: rgba(5,150,105,0.1);
+}
+
+/* ==== Botones Outline ==== */
+.btn-outline-light {
+  border-color: rgba(255,255,255,0.85);
+}
+.btn-outline-light:hover {
+  background-color: rgba(255,255,255,0.15);
+}
+
+/* ==== Modal ==== */
+.modal-content {
+  border-radius: 0.75rem;
+}
+
+/* ==== Responsive tweaks ==== */
+@media (max-width: 576px) {
+  #hero h1 {
+    font-size: 2rem;
+  }
+}
