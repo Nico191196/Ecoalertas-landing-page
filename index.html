@@ -1,168 +1,445 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" dir="ltr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>EcoAlertas</title>
-  <meta name="description" content="Reportá problemas urbanos con tu comunidad.">
-
-  <!-- Bootstrap CSS -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-ENjdO4Dr2bkBIFxQpeoYz1DF6fJpGx+OiYp1ZG2zpz0i6hSTz0nNQ2Q5rZNIyY/"
-    crossorigin="anonymous"
-  >
-  <!-- FontAwesome para iconos -->
-  <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    rel="stylesheet"
-  >
-  <!-- Tu CSS custom -->
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ecoalertas - Monitoreo Ambiental Inteligente</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Ecoalertas - Plataforma de monitoreo ambiental y alertas ecológicas en tiempo real. Únete a la red global de protección del medio ambiente.">
+  <meta name="keywords" content="medio ambiente, alertas, ecología, monitoreo, sostenibilidad, cambio climático">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Ecoalertas Team">
+  <link rel="canonical" href="https://ecoalertas.com">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Ecoalertas - Monitoreo Ambiental Inteligente">
+  <meta property="og:description" content="Únete a la red de monitoreo ambiental más avanzada. Recibe alertas en tiempo real y ayuda a proteger nuestro planeta.">
+  <meta property="og:image" content="https://ecoalertas.com/assets/og-image.jpg">
+  <meta property="og:url" content="https://ecoalertas.com">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Ecoalertas">
+  
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ecoalertas - Monitoreo Ambiental">
+  <meta name="twitter:description" content="Plataforma de alertas ecológicas en tiempo real">
+  <meta name="twitter:image" content="https://ecoalertas.com/assets/twitter-image.jpg">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  <!-- Performance Optimization -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  
+  <!-- Critical CSS -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"></noscript>
+  
+  <!-- Custom Styles -->
+  <link rel="preload" href="css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Ecoalertas",
+    "url": "https://ecoalertas.com",
+    "logo": "https://ecoalertas.com/assets/logo.png",
+    "description": "Plataforma de monitoreo ambiental y alertas ecológicas en tiempo real",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Customer Service",
+      "email": "contacto@ecoalertas.com"
+    }
+  }
+  </script>
 </head>
-<body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-success">
-    <div class="container">
-      <a class="navbar-brand d-flex align-items-center" href="#">
-        <img src="assets/logo.png" alt="EcoAlertas" width="40" height="40" class="me-2">
-        EcoAlertas
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navMenu">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link" href="#hero">Inicio</a></li>
-          <li class="nav-item"><a class="nav-link" href="#features">Cómo Funciona</a></li>
-          <li class="nav-item"><a class="nav-link" href="#registro">Newsletter</a></li>
-        </ul>
-        <button id="loginBtn" class="btn btn-outline-light ms-3">Iniciar Sesión</button>
-      </div>
-    </div>
-  </nav>
+<body class="bg-light">
+  <!-- Skip to main content -->
+  <a href="#main-content" class="skip-link visually-hidden-focusable btn btn-primary position-absolute top-0 start-0 z-index-top">
+    Saltar al contenido principal
+  </a>
 
-  <!-- Hero -->
-  <section id="hero" class="bg-success text-white text-center py-5">
-    <div class="container">
-      <h1 class="display-4 fw-bold">Cuida tu ciudad con una foto</h1>
-      <p class="lead mb-4">Reportá basura, baches, luminarias y más en segundos.</p>
-      <a href="#registro" class="btn btn-light btn-lg">Únete ahora</a>
-    </div>
-  </section>
-
-  <!-- Métricas -->
-  <section id="metrics" class="py-5">
-    <div class="container">
-      <div class="row g-4 text-center">
-        <div class="col-6 col-md-4">
-          <div class="card border-0 shadow-sm p-4">
-            <h2 class="fw-bold text-success">3500+</h2>
-            <p class="text-muted">Alertas enviadas</p>
-          </div>
-        </div>
-        <div class="col-6 col-md-4">
-          <div class="card border-0 shadow-sm p-4">
-            <h2 class="fw-bold text-success">12</h2>
-            <p class="text-muted">Municipios activos</p>
-          </div>
-        </div>
-        <div class="col-6 col-md-4">
-          <div class="card border-0 shadow-sm p-4">
-            <h2 class="fw-bold text-success">4.8/5</h2>
-            <p class="text-muted">Usuarios satisfechos</p>
-          </div>
+  <!-- Header -->
+  <header class="site-header sticky-top bg-white shadow-sm" role="banner">
+    <nav class="navbar navbar-expand-lg navbar-light" role="navigation" aria-label="Navegación principal">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="#" aria-label="Ecoalertas - Inicio">
+          <svg width="40" height="40" viewBox="0 0 40 40" class="me-2" aria-hidden="true">
+            <circle cx="20" cy="20" r="18" fill="#22c55e" opacity="0.1"/>
+            <path d="M20 8l-8 12h6v12h4V20h6z" fill="#22c55e"/>
+          </svg>
+          <span class="fw-bold text-success fs-4">Ecoalertas</span>
+        </a>
+        
+        <button class="navbar-toggler border-0" type="button" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav" 
+                aria-expanded="false" 
+                aria-label="Alternar navegación">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto" role="menubar">
+            <li class="nav-item" role="menuitem">
+              <a class="nav-link" href="#inicio" aria-current="page">Inicio</a>
+            </li>
+            <li class="nav-item" role="menuitem">
+              <a class="nav-link" href="#sobre-nosotros">Sobre Nosotros</a>
+            </li>
+            <li class="nav-item" role="menuitem">
+              <a class="nav-link" href="#funcionalidades">Funcionalidades</a>
+            </li>
+            <li class="nav-item" role="menuitem">
+              <a class="nav-link" href="#contacto">Contacto</a>
+            </li>
+            <li class="nav-item ms-2" role="menuitem">
+              <button class="btn btn-outline-success" 
+                      data-bs-toggle="modal" 
+                      data-bs-target="#loginModal"
+                      aria-describedby="login-description">
+                Iniciar Sesión
+              </button>
+            </li>
+          </ul>
         </div>
       </div>
-    </div>
-  </section>
+    </nav>
+  </header>
 
-  <!-- Cómo Funciona -->
-  <section id="features" class="py-5 bg-light">
-    <div class="container">
-      <h2 class="text-center mb-5">¿Cómo funciona?</h2>
-      <div class="row g-4">
-        <div class="col-md-4 text-center">
-          <i class="fas fa-camera-retro fa-3x text-success mb-3"></i>
-          <h5>Capturá</h5>
-          <p>Fotografiá el problema urbano.</p>
-        </div>
-        <div class="col-md-4 text-center">
-          <i class="fas fa-map-marker-alt fa-3x text-success mb-3"></i>
-          <h5>Geoetiquetá</h5>
-          <p>Tu celular agrega la ubicación.</p>
-        </div>
-        <div class="col-md-4 text-center">
-          <i class="fas fa-bullhorn fa-3x text-success mb-3"></i>
-          <h5>Reportá</h5>
-          <p>La alerta llega a las autoridades.</p>
+  <!-- Main Content -->
+  <main id="main-content" role="main">
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-section py-5" role="banner" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="row align-items-center min-vh-75">
+          <div class="col-lg-6 mb-5 mb-lg-0">
+            <h1 id="hero-title" class="display-4 fw-bold text-dark mb-4">
+              Monitoreo Ambiental <span class="text-success">Inteligente</span>
+            </h1>
+            <p class="lead text-muted mb-4" role="text">
+              Únete a la red global de alertas ecológicas y ayuda a proteger nuestro planeta con tecnología de vanguardia y datos en tiempo real.
+            </p>
+            <div class="cta-buttons d-flex flex-wrap gap-3" role="group" aria-label="Acciones principales">
+              <button class="btn btn-success btn-lg px-4 py-3" 
+                      data-bs-toggle="modal" 
+                      data-bs-target="#loginModal"
+                      aria-describedby="login-description">
+                <svg width="20" height="20" viewBox="0 0 20 20" class="me-2" aria-hidden="true">
+                  <path fill="currentColor" d="M10 2L3 7v11h4v-6h6v6h4V7l-7-5z"/>
+                </svg>
+                Acceder al Dashboard
+              </button>
+              <button class="btn btn-outline-success btn-lg px-4 py-3" 
+                      data-bs-toggle="modal" 
+                      data-bs-target="#newsletterModal"
+                      aria-describedby="newsletter-description">
+                <svg width="20" height="20" viewBox="0 0 20 20" class="me-2" aria-hidden="true">
+                  <path fill="currentColor" d="M2 4l8 5 8-5v10H2V4z"/>
+                </svg>
+                Únete al Newsletter
+              </button>
+            </div>
+            <div class="mt-4 d-flex align-items-center text-muted">
+              <svg width="16" height="16" viewBox="0 0 16 16" class="me-2 text-success" aria-hidden="true">
+                <path fill="currentColor" d="M13.5 1.5L6 9l-3.5-3.5L1 7l5 5 9-9z"/>
+              </svg>
+              <small>Más de 10,000 usuarios confían en nosotros</small>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="position-relative">
+              <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                   class="img-fluid rounded-4 shadow-lg" 
+                   alt="Dashboard de monitoreo ambiental mostrando alertas en tiempo real y datos de calidad del aire"
+                   loading="lazy"
+                   width="600"
+                   height="400">
+              <div class="position-absolute top-0 end-0 bg-success text-white p-3 rounded-3 m-3 shadow">
+                <div class="d-flex align-items-center">
+                  <div class="bg-white rounded-circle p-1 me-2">
+                    <div class="bg-success rounded-circle" style="width: 8px; height: 8px;"></div>
+                  </div>
+                  <small class="fw-semibold">En tiempo real</small>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Newsletter -->
-  <section id="registro" class="py-5 text-center">
-    <div class="container">
-      <h2 class="mb-4">Suscribite al Newsletter</h2>
-      <form id="newsletterForm" class="row justify-content-center g-2">
-        <div class="col-auto">
-          <input type="email" name="email" class="form-control form-control-lg" placeholder="Tu correo electrónico" required>
+    <!-- Features Section -->
+    <section id="funcionalidades" class="py-5 bg-white" aria-labelledby="features-title">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 id="features-title" class="display-5 fw-bold text-dark mb-3">
+            Funcionalidades Principales
+          </h2>
+          <p class="lead text-muted">Descubre las herramientas que hacen de Ecoalertas la plataforma líder en monitoreo ambiental</p>
         </div>
-        <div class="col-auto">
-          <button type="submit" class="btn btn-success btn-lg">Enviar</button>
+        
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6">
+            <article class="feature-card h-100 p-4 bg-light rounded-4 border-0 shadow-sm">
+              <div class="feature-icon bg-success bg-opacity-10 rounded-3 p-3 mb-3 d-inline-block">
+                <svg width="32" height="32" viewBox="0 0 32 32" class="text-success" aria-hidden="true">
+                  <path fill="currentColor" d="M16 4l-12 8v16h8v-8h8v8h8V12L16 4z"/>
+                </svg>
+              </div>
+              <h3 class="h5 fw-semibold mb-3">Dashboard Interactivo</h3>
+              <p class="text-muted mb-0">Visualiza datos ambientales en tiempo real con gráficos interactivos y mapas de calor personalizables.</p>
+            </article>
+          </div>
+          
+          <div class="col-lg-4 col-md-6">
+            <article class="feature-card h-100 p-4 bg-light rounded-4 border-0 shadow-sm">
+              <div class="feature-icon bg-warning bg-opacity-10 rounded-3 p-3 mb-3 d-inline-block">
+                <svg width="32" height="32" viewBox="0 0 32 32" class="text-warning" aria-hidden="true">
+                  <path fill="currentColor" d="M16 2L2 28h28L16 2zm0 6l10 18H6L16 8z"/>
+                </svg>
+              </div>
+              <h3 class="h5 fw-semibold mb-3">Alertas Inteligentes</h3>
+              <p class="text-muted mb-0">Recibe notificaciones personalizadas sobre cambios críticos en tu zona de interés.</p>
+            </article>
+          </div>
+          
+          <div class="col-lg-4 col-md-6">
+            <article class="feature-card h-100 p-4 bg-light rounded-4 border-0 shadow-sm">
+              <div class="feature-icon bg-info bg-opacity-10 rounded-3 p-3 mb-3 d-inline-block">
+                <svg width="32" height="32" viewBox="0 0 32 32" class="text-info" aria-hidden="true">
+                  <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="2"/>
+                  <path stroke="currentColor" stroke-width="2" d="M8 16h16M16 8v16"/>
+                </svg>
+              </div>
+              <h3 class="h5 fw-semibold mb-3">Análisis Predictivo</h3>
+              <p class="text-muted mb-0">Utiliza inteligencia artificial para predecir tendencias ambientales y tomar decisiones informadas.</p>
+            </article>
+          </div>
         </div>
-      </form>
-    </div>
-  </section>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre-nosotros" class="py-5 bg-light" aria-labelledby="about-title">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-5 mb-lg-0">
+            <img src="https://images.unsplash.com/photo-1569163139394-de4e4f43e4e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                 class="img-fluid rounded-4 shadow" 
+                 alt="Equipo de científicos trabajando con datos ambientales"
+                 loading="lazy"
+                 width="500"
+                 height="400">
+          </div>
+          <div class="col-lg-6">
+            <h2 id="about-title" class="display-5 fw-bold text-dark mb-4">
+              Sobre Nosotros
+            </h2>
+            <p class="text-muted mb-4">
+              Somos un equipo apasionado de científicos, desarrolladores y activistas ambientales comprometidos con la protección de nuestro planeta a través de la tecnología.
+            </p>
+            <p class="text-muted mb-4">
+              Nuestra misión es democratizar el acceso a información ambiental crítica, empoderando a comunidades, organizaciones y gobiernos para tomar decisiones informadas sobre el medio ambiente.
+            </p>
+            <div class="d-flex align-items-center">
+              <div class="me-4">
+                <h3 class="h2 fw-bold text-success mb-0">10K+</h3>
+                <small class="text-muted">Usuarios Activos</small>
+              </div>
+              <div class="me-4">
+                <h3 class="h2 fw-bold text-success mb-0">50+</h3>
+                <small class="text-muted">Países</small>
+              </div>
+              <div>
+                <h3 class="h2 fw-bold text-success mb-0">24/7</h3>
+                <small class="text-muted">Monitoreo</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter CTA Section -->
+    <section class="py-5 bg-success text-white" aria-labelledby="cta-title">
+      <div class="container text-center">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <h2 id="cta-title" class="display-5 fw-bold mb-3">
+              Mantente Informado
+            </h2>
+            <p class="lead mb-4">
+              Recibe las últimas noticias sobre medio ambiente, actualizaciones de la plataforma y consejos para un futuro más sostenible.
+            </p>
+            <button class="btn btn-light btn-lg px-5" 
+                    data-bs-toggle="modal" 
+                    data-bs-target="#newsletterModal">
+              Suscribirse al Newsletter
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <!-- Footer -->
-  <footer class="py-4 bg-success text-white text-center">
+  <footer class="bg-dark text-white py-5" role="contentinfo">
     <div class="container">
-      <p class="mb-0">EcoAlertas © 2025 • <a href="#" class="text-white">Privacidad</a> • <a href="#" class="text-white">Términos</a></p>
+      <div class="row">
+        <div class="col-lg-4 mb-4 mb-lg-0">
+          <div class="d-flex align-items-center mb-3">
+            <svg width="32" height="32" viewBox="0 0 32 32" class="me-2" aria-hidden="true">
+              <circle cx="16" cy="16" r="14" fill="#22c55e" opacity="0.2"/>
+              <path d="M16 6l-8 12h6v8h4v-8h6z" fill="#22c55e"/>
+            </svg>
+            <span class="fw-bold fs-5">Ecoalertas</span>
+          </div>
+          <p class="text-muted mb-3">
+            Tecnología al servicio del medio ambiente para un futuro más sostenible.
+          </p>
+          <div class="social-links">
+            <a href="#" class="text-white me-3" aria-label="Facebook">
+              <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+                <path fill="currentColor" d="M18 0H2C.9 0 0 .9 0 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V2c0-1.1-.9-2-2-2zM15 11h-2v7h-3v-7H8V8h2V6.5C10 4.6 10.9 4 12.5 4H15v3h-1.5c-.6 0-1 .4-1 1V8h3l-.5 3z"/>
+              </svg>
+            </a>
+            <a href="#" class="text-white me-3" aria-label="Twitter">
+              <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+                <path fill="currentColor" d="M19 4.74c-.69.31-1.43.52-2.2.62.79-.47 1.4-1.22 1.68-2.11-.74.44-1.56.76-2.43.93-.7-.74-1.69-1.2-2.79-1.2-2.11 0-3.83 1.71-3.83 3.83 0 .3.03.59.1.87C6.28 6.55 3.34 5.04 1.36 2.69c-.33.56-.52 1.22-.52 1.92 0 1.33.68 2.5 1.71 3.19-.63-.02-1.22-.19-1.74-.48v.05c0 1.86 1.32 3.41 3.07 3.76-.32.09-.66.13-1.01.13-.25 0-.49-.02-.73-.07.49 1.54 1.93 2.66 3.63 2.69-1.31 1.03-2.97 1.64-4.77 1.64-.31 0-.62-.02-.92-.05 1.69 1.08 3.7 1.71 5.86 1.71 7.03 0 10.87-5.82 10.87-10.87 0-.17 0-.33-.01-.5.75-.54 1.4-1.21 1.91-1.98z"/>
+              </svg>
+            </a>
+            <a href="#" class="text-white" aria-label="LinkedIn">
+              <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+                <path fill="currentColor" d="M18 0H2C.9 0 0 .9 0 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V2c0-1.1-.9-2-2-2zM6 16H3V7h3v9zM4.5 5.5C3.7 5.5 3 4.8 3 4s.7-1.5 1.5-1.5S6 3.2 6 4s-.7 1.5-1.5 1.5zM17 16h-3v-4.5c0-1.1-.9-2-2-2s-2 .9-2 2V16H7V7h3v1.2c.5-.8 1.6-1.2 2.5-1.2 1.9 0 3.5 1.6 3.5 3.5V16z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+          <h5 class="fw-semibold mb-3">Producto</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-text-white">Dashboard</a></li>
+            <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-text-white">Alertas</a></li>
+            <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-text-white">API</a></li>
+            <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-text-white">Móvil</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+          <h5 class="fw-semibold mb-3">Empresa</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-text-white">Sobre Nosotros</a></li>
+            <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-text-white">Blog</a></li>
+            <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-text-white">Carreras</a></li>
+            <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-text-white">Prensa</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+          <h5 class="fw-semibold mb-3">Soporte</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-text-white">Centro de Ayuda</a></li>
+            <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-text-white">Contacto</a></li>
+            <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-text-white">Estado</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-lg-2 col-md-6">
+          <h5 class="fw-semibold mb-3">Legal</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-text-white">Privacidad</a></li>
+            <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-text-white">Términos</a></li>
+            <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-text-white">Cookies</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <hr class="border-secondary my-4">
+      
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <p class="text-muted mb-0">
+            © 2024 Ecoalertas. Todos los derechos reservados.
+          </p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <p class="text-muted mb-0">
+            Hecho con 💚 para el planeta
+          </p>
+        </div>
+      </div>
     </div>
   </footer>
 
   <!-- Login Modal -->
-  <div class="modal fade" id="loginModal" tabindex="-1">
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Iniciar Sesión</h5>
+      <div class="modal-content border-0 shadow-lg">
+        <div class="modal-header border-0 pb-0">
+          <h5 class="modal-title fw-bold" id="loginModalLabel">Iniciar Sesión</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
         </div>
         <div class="modal-body">
-          <form id="loginForm">
+          <form id="loginForm" class="needs-validation" novalidate>
             <div class="mb-3">
-              <input type="email" name="email" class="form-control" placeholder="Correo electrónico" required>
+              <label for="loginEmail" class="form-label">Correo Electrónico *</label>
+              <input type="email" 
+                     class="form-control form-control-lg" 
+                     id="loginEmail" 
+                     name="email"
+                     required 
+                     autocomplete="email"
+                     aria-describedby="loginEmailHelp">
+              <div id="loginEmailHelp" class="form-text">Ingresa tu correo registrado</div>
+              <div class="invalid-feedback" role="alert">
+                Por favor ingresa un correo válido
+              </div>
             </div>
-            <div class="mb-3">
-              <input type="password" name="password" class="form-control" placeholder="Contraseña" required>
+            
+            <div class="mb-4">
+              <label for="loginPassword" class="form-label">Contraseña *</label>
+              <input type="password" 
+                     class="form-control form-control-lg" 
+                     id="loginPassword" 
+                     name="password"
+                     required 
+                     autocomplete="current-password"
+                     minlength="6">
+              <div class="invalid-feedback" role="alert">
+                La contraseña debe tener al menos 6 caracteres
+              </div>
             </div>
-            <button type="submit" class="btn btn-success w-100">
-              Iniciar Sesión
-              <span class="spinner-border spinner-border-sm text-light ms-2 d-none loading-spinner" role="status"></span>
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Bootstrap Bundle JS -->
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ppfLkzY6P6kdANSBXm4GIfOqX2o0wP3olq0zrN2eJxi/BVltUQK4KULOyZQipAN/"
-    crossorigin="anonymous"
-  ></script>
-
-  <!-- Firebase SDKs -->
-  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
-  <!-- Configuración y lógica -->
-  <script src="js/firebase-config.js"></script>
-  <script src="js/main.js"></script>
-</body>
-</html>
+            
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-success btn-lg" id="loginBtn">
+                <span class="btn-text">Iniciar Sesión</span>
+                <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+              </button>
+              <button type="button" class="btn btn-outline-primary" id="googleLoginBtn">
+                <svg width="18" height="18" viewBox="0 0 18 18" class="me-2">
+                  <path fill="#4285F4" d="M16.51 8.18h-8.98v3.24h5.13c-.24 1.29-.96 2.35-2.07 3.02v2.54h3.36c1.97-1.81 3.11-4.47 3.11-7.6 0-.51-.05-1.02-.15-1.49z"/>
+                  <path fill="#34A853" d="M7.53 16.67c2.8 0 5.15-.93 6.87-2.52l-3.36-2.6c-.93.62-2.12.99-3.51.99-2.7 0-4.98-1.82-5.8-4.27H1.36v2.69c1.73 3.44 5.31 5.71 9.17 5.71z"/>
+                  <path fill="#FBBC04" d="M1.73 10.27C1.53 9.65 1.42 9 1.42 8.33s.11-1.32.31-1.94V3.7H1.36C.49 5.45 0 6.81 0 8.33s.49 2.88 1.36 4.63l2.37-1.69z"/>
+                  <path fill="#EA4335" d="M7.53 3.27c1.52 0 2.89.52 3.96 1.54l2.97-2.97C12.68.49 10.43 0 7.53 0 3.67 0 1.09 2.27.36 5.71l2.37 1.84c.82-2.45 3.1-4.28 5.8-4.28z"/>
+                </svg>
+                Continuar con Google
+              </button>
+            </div>
+            
+            <div class="text-center mt-3">
+              <a href="#" class="text-muted text-decoration-none">¿Olvidaste tu contraseña?
