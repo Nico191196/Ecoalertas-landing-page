@@ -1,18 +1,15 @@
 // js/auth.js
+
+// Escucha cambios en el estado de autenticación
 auth.onAuthStateChanged(user => {
-  if (user) {
-    document.getElementById('userEmail').textContent = user.email;
+  if (!user) {
+    // Si no hay usuario autenticado, redirige al inicio
+    window.location.href = 'index.html';
   } else {
-    window.location.href = "index.html";
+    // Si hay usuario, muestra su correo en el dashboard
+    const emailEl = document.getElementById('userEmail');
+    if (emailEl) {
+      emailEl.textContent = user.email;
+    }
   }
 });
-auth.onAuthStateChanged(user => {
-  if (!user) return window.location.href = 'index.html';
-  document.getElementById('userEmail').textContent = user.email;
-});
-
-function logout() {
-  auth.signOut().then(() => {
-    window.location.href = "index.html";
-  });
-}
