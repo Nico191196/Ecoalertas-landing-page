@@ -14,7 +14,7 @@
   --transition: all 0.3s ease;
 }
 
-/* ==== Dark Theme Support ==== */
+/* ==== Modo Oscuro ==== */
 [data-theme="dark"] {
   --bg-light: #064e3b;
   --bg-white: #065f46;
@@ -42,6 +42,7 @@ body {
   color: var(--text-dark);
   transition: var(--transition);
   min-height: 100vh;
+  line-height: 1.6;
 }
 
 a {
@@ -55,13 +56,42 @@ a {
   padding: 2rem;
 }
 
+/* ==== Header ==== */
+.header {
+  background: var(--primary-color);
+  color: white;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-section h1 {
+  font-size: 1.5rem;
+}
+
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 /* ==== Botones ==== */
 .btn {
   background: var(--primary-color);
   color: white;
   border: none;
   padding: 0.75rem 1.5rem;
-  border-radius: 10px;
+  border-radius: 8px;
   cursor: pointer;
   font-weight: 600;
   transition: var(--transition);
@@ -82,22 +112,23 @@ a {
   color: white;
 }
 
-/* ==== Header ==== */
-header {
-  background: var(--primary-color);
+/* ==== Hero ==== */
+.hero {
+  background: var(--gradient, var(--primary-color));
   color: white;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  text-align: center;
+  padding: 4rem 2rem;
 }
 
-/* ==== Cards / Métricas ==== */
+.hero .btn {
+  margin-top: 1rem;
+}
+
+/* ==== Métricas y Cards ==== */
 .metrics {
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
-  margin-top: 2rem;
 }
 
 .card {
@@ -107,16 +138,22 @@ header {
   padding: 1.5rem;
   border-radius: 12px;
   box-shadow: var(--shadow);
+  text-align: center;
 }
 
-.card h2 {
-  margin-bottom: 0.5rem;
+.card h2, .card h3 {
   font-size: 2rem;
   color: var(--primary-color);
+  margin-bottom: 0.5rem;
 }
 
 .card p {
   color: var(--text-light);
+}
+
+/* ==== Secciones ==== */
+.section {
+  padding: 3rem 0;
 }
 
 /* ==== Tabla ==== */
@@ -125,14 +162,13 @@ table {
   border-collapse: collapse;
   margin-top: 1.5rem;
   background: var(--bg-white);
-  border: 1px solid var(--border-color);
   box-shadow: var(--shadow);
   border-radius: 8px;
   overflow: hidden;
 }
 
 th, td {
-  padding: 1rem;
+  padding: 0.75rem 1rem;
   border-bottom: 1px solid var(--border-color);
   text-align: left;
   font-size: 0.95rem;
@@ -148,21 +184,13 @@ td {
   color: var(--text-dark);
 }
 
-/* ==== Logo ==== */
-.logo {
-  width: 40px;
-  height: 40px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
 /* ==== Modal ==== */
 .modal {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
+  width: 100%;
+  height: 100%;
   background: rgba(0,0,0,0.5);
   display: none;
   align-items: center;
@@ -179,64 +207,35 @@ td {
   padding: 2rem;
   border-radius: 12px;
   box-shadow: var(--shadow-lg);
-  width: 100%;
+  width: 90%;
   max-width: 400px;
 }
 
-.modal-content h2 {
-  margin-bottom: 1.5rem;
+.form-group {
+  margin-bottom: 1rem;
 }
 
-.modal-content input {
+.form-group input {
   width: 100%;
   padding: 0.75rem;
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  margin-bottom: 1rem;
 }
 
-/* ==== Notificaciones ==== */
+/* ==== Notification Toast ==== */
 .notification {
   position: fixed;
-  top: 20px;
-  right: 20px;
+  top: 1rem;
+  right: 1rem;
   background: var(--bg-white);
   padding: 1rem 1.5rem;
-  border-radius: 10px;
+  border-radius: 8px;
   box-shadow: var(--shadow-lg);
   display: none;
   z-index: 1500;
 }
 
-/* ==== Responsive ==== */
-@media (max-width: 768px) {
-  .metrics {
-    flex-direction: column;
-  }
-
-  .btn {
-    width: 100%;
-    text-align: center;
-  }
-
-  header {
-    flex-direction: column;
-    gap: 1rem;
-  }
-}
-
-/* ==== Transiciones Suaves ==== */
-button, input, a {
-  transition: var(--transition);
-}
-
-/* ==== Accesibilidad ==== */
-button:focus, input:focus, a:focus {
-  outline: 2px solid var(--primary-color);
-  outline-offset: 2px;
-}
-
-/* ==== Animaciones de carga ==== */
+/* ==== Loading Spinner ==== */
 .loading-spinner {
   border: 3px solid var(--border-color);
   border-top: 3px solid var(--primary-color);
@@ -250,4 +249,24 @@ button:focus, input:focus, a:focus {
 @keyframes spin {
   0% { transform: rotate(0); }
   100% { transform: rotate(360deg); }
+}
+
+/* ==== Responsive ==== */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .metrics {
+    flex-direction: column;
+  }
+  .btn {
+    width: 100%;
+  }
+}
+
+/* ==== Accesibilidad ==== */
+button:focus, input:focus, a:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
 }
