@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>EcoAlertas</title>
-  <meta name="description" content="EcoAlertas: reportá problemas urbanos con una foto.">
+  <meta name="description" content="Reportá problemas urbanos con tu comunidad.">
 
   <!-- Bootstrap CSS -->
   <link
@@ -13,11 +13,15 @@
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoYz1DF6fJpGx+OiYp1ZG2zpz0i6hSTz0nNQ2Q5rZNIyY/"
     crossorigin="anonymous"
   >
-
+  <!-- FontAwesome para iconos -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    rel="stylesheet"
+  >
   <!-- Tu CSS custom -->
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body data-theme="light">
+<body>
 
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-success">
@@ -26,16 +30,16 @@
         <img src="assets/logo.png" alt="EcoAlertas" width="40" height="40" class="me-2">
         EcoAlertas
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="mainNav">
+      <div class="collapse navbar-collapse" id="navMenu">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item"><a class="nav-link" href="#hero">Inicio</a></li>
           <li class="nav-item"><a class="nav-link" href="#features">Cómo Funciona</a></li>
           <li class="nav-item"><a class="nav-link" href="#registro">Newsletter</a></li>
         </ul>
-        <button id="loginBtn" class="btn btn-outline-light ms-lg-3">Iniciar Sesión</button>
+        <button id="loginBtn" class="btn btn-outline-light ms-3">Iniciar Sesión</button>
       </div>
     </div>
   </nav>
@@ -81,19 +85,19 @@
       <h2 class="text-center mb-5">¿Cómo funciona?</h2>
       <div class="row g-4">
         <div class="col-md-4 text-center">
-          <div class="fs-1 mb-3">📸</div>
+          <i class="fas fa-camera-retro fa-3x text-success mb-3"></i>
           <h5>Capturá</h5>
-          <p>Fotografiá el problema urbano</p>
+          <p>Fotografiá el problema urbano.</p>
         </div>
         <div class="col-md-4 text-center">
-          <div class="fs-1 mb-3">📍</div>
+          <i class="fas fa-map-marker-alt fa-3x text-success mb-3"></i>
           <h5>Geoetiquetá</h5>
-          <p>Tu celular agrega la ubicación</p>
+          <p>Tu celular agrega la ubicación.</p>
         </div>
         <div class="col-md-4 text-center">
-          <div class="fs-1 mb-3">🚀</div>
+          <i class="fas fa-bullhorn fa-3x text-success mb-3"></i>
           <h5>Reportá</h5>
-          <p>La alerta llega a las autoridades</p>
+          <p>La alerta llega a las autoridades.</p>
         </div>
       </div>
     </div>
@@ -116,7 +120,9 @@
 
   <!-- Footer -->
   <footer class="py-4 bg-success text-white text-center">
-    <p class="mb-0">EcoAlertas © 2025 • <a href="#" class="text-white">Privacidad</a> • <a href="#" class="text-white">Términos</a></p>
+    <div class="container">
+      <p class="mb-0">EcoAlertas © 2025 • <a href="#" class="text-white">Privacidad</a> • <a href="#" class="text-white">Términos</a></p>
+    </div>
   </footer>
 
   <!-- Login Modal -->
@@ -125,7 +131,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">Iniciar Sesión</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
         </div>
         <div class="modal-body">
           <form id="loginForm">
@@ -136,21 +142,11 @@
               <input type="password" name="password" class="form-control" placeholder="Contraseña" required>
             </div>
             <button type="submit" class="btn btn-success w-100">
-              <span class="btn-text">Iniciar Sesión</span>
-              <div class="spinner-border spinner-border-sm text-light loading-spinner d-none" role="status"></div>
+              Iniciar Sesión
+              <span class="spinner-border spinner-border-sm text-light ms-2 d-none loading-spinner" role="status"></span>
             </button>
           </form>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Toast Notification -->
-  <div class="position-fixed top-0 end-0 p-3" style="z-index: 1055;">
-    <div id="notification" class="toast align-items-center text-white bg-success border-0" role="alert">
-      <div class="d-flex">
-        <div class="toast-body" id="notificationText"></div>
-        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
       </div>
     </div>
   </div>
@@ -165,8 +161,7 @@
   <!-- Firebase SDKs -->
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
-
-  <!-- Config & Logic -->
+  <!-- Configuración y lógica -->
   <script src="js/firebase-config.js"></script>
   <script src="js/main.js"></script>
 </body>
