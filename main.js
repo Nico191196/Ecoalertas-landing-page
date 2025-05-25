@@ -53,3 +53,11 @@ window.addEventListener('DOMContentLoaded', () => {
   const saved = localStorage.getItem('darkMode');
   if (saved === 'dark') document.body.setAttribute('data-theme', 'dark');
 });
+
+// Manejo simple de modal omitido…
+document.getElementById('loginForm').addEventListener('submit', e => {
+  e.preventDefault();
+  auth.signInWithEmailAndPassword(e.target.email.value, e.target.password.value)
+    .then(() => window.location.href = 'dashboard.html')
+    .catch(err => alert(err.message));
+});
