@@ -2,103 +2,56 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>EcoAlertas | Dashboard</title>
-  <link rel="stylesheet" href="css/styles.css" />
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #ecfdf5;
-      color: #064e3b;
-    }
-<link rel="stylesheet" href="css/styles.css">
-<script src="js/main.js"></script>
+  <meta name="description" content="Panel de control de EcoAlertas">
 
-    header {
-      background: #059669;
-      color: white;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .btn {
-      background: white;
-      color: #059669;
-      padding: 0.5rem 1rem;
-      border: none;
-      border-radius: 6px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    main {
-      padding: 2rem;
-    }
-
-    .metrics {
-      display: flex;
-      gap: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    .card {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      flex: 1;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: white;
-    }
-
-    th, td {
-      padding: 0.75rem;
-      border: 1px solid #d1fae5;
-      text-align: left;
-    }
-
-    th {
-      background: #d1fae5;
-    }
-
-    .download-btn {
-      margin-top: 1rem;
-    }
-  </style>
+  <!-- Estilos -->
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
 <body>
-  <header>
-    <h1>Panel de Control | EcoAlertas</h1>
-    <div>
-      <span id="userEmail"></span>
-      <button class="btn" onclick="logout()">Cerrar sesión</button>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content container">
+      <div class="logo-section">
+        <img src="assets/logo.png" alt="EcoAlertas Logo" class="logo"/>
+        <h1>EcoAlertas</h1>
+      </div>
+      <div class="nav-controls">
+        <button id="themeToggle" class="btn-outline"><i class="fas fa-moon"></i></button>
+        <button id="logoutBtn" class="btn-outline"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</button>
+      </div>
     </div>
   </header>
 
-  <main>
-    <section class="metrics">
+  <!-- Contenido Principal -->
+  <main class="container">
+    <!-- Bienvenida -->
+    <section class="section">
+      <h2>Bienvenido, <span id="userEmail">Usuario</span></h2>
+      <p>Desde aquí podés gestionar tus alertas y revisar estadísticas.</p>
+    </section>
+
+    <!-- Métricas -->
+    <section class="metrics section">
       <div class="card">
         <h2 id="totalAlerts">0</h2>
-        <p>Alertas totales</p>
+        <p>Alertas Totales</p>
       </div>
       <div class="card">
         <h2 id="activeCities">0</h2>
-        <p>Municipios activos</p>
+        <p>Municipios Activos</p>
       </div>
       <div class="card">
-        <h2 id="averageResponse">0</h2>
-        <p>Tiempo medio de respuesta</p>
+        <h2 id="avgResponse">0</h2>
+        <p>Tiempo Medio de Respuesta</p>
       </div>
     </section>
 
-    <section>
+    <!-- Tabla de Alertas -->
+    <section class="section">
       <h2>Listado de Alertas</h2>
       <table id="alertsTable">
         <thead>
@@ -110,21 +63,50 @@
           </tr>
         </thead>
         <tbody>
-          <!-- Datos cargados dinámicamente -->
+          <!-- Se llenará dinámicamente -->
         </tbody>
       </table>
-      <button class="btn download-btn" onclick="exportToExcel()">Descargar Excel</button>
+      <button class="btn" onclick="exportToExcel()">
+        <i class="fas fa-file-excel"></i> Descargar Excel
+      </button>
     </section>
   </main>
 
-  <!-- Firebase & scripts -->
+  <!-- Firebase SDKs -->
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 
+  <!-- Configuración de Firebase -->
   <script src="js/firebase-config.js"></script>
+
+  <!-- Lógica de autorización -->
   <script src="js/auth.js"></script>
+
+  <!-- Lógica del dashboard -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <script src="js/api.js"></script>
   <script src="js/dashboard.js"></script>
+
+  <!-- Logout y Theme Toggle -->
+  <script>
+    // Cerrar sesión
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+      auth.signOut().then(() => window.location.href = 'index.html');
+    });
+
+    // Alternar tema
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      const isDark = document.body.getAttribute('data-theme') === 'dark';
+      document.body.setAttribute('data-theme', isDark ? 'light' : 'dark');
+      localStorage.setItem('darkMode', document.body.getAttribute('data-theme'));
+    });
+
+    // Restaurar tema
+    window.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem('darkMode');
+      if (saved === 'dark') document.body.setAttribute('data-theme', 'dark');
+    });
+  </script>
+
 </body>
 </html>
