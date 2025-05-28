@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EcoAlertas - Monitoreo Inteligente de Incidencias Urbanas</title>
+<!-- SEO Meta Tags -->
+<meta content="EcoAlertas - Plataforma de Monitoreo Inteligente de Incidencias Urbanas en tiempo real. Únete a la revolución del cuidado de las ciudades" name="description"/>
+<meta content="ciudades, alertas, ecología, monitoreo, sostenibilidad, smart cities, ciudades inteligentes, civico, cambio climático" name="keywords"/>
+<meta content="index, follow" name="robots"/>
+<meta content="Ecoalertas Team" name="author"/>
+<link href="https://ecoalertas.com" rel="canonical"/>
+<!-- Open Graph Meta Tags -->
+<meta content="EcoAlertas - Monitoreo Inteligente de Incidencias Urbanas" property="og:title"/>
+<meta content="Recibe alertas en tiempo real y ayuda a mejorar nuestras ciudades." property="og:description"/>
+<meta content="https://ecoalertas.com/assets/og-image.jpg" property="og:image"/>
+<meta content="https://ecoalertas.com" property="og:url"/>
+<meta content="website" property="og:type"/>
+<meta content="EcoAlertas" property="og:site_name"/>
+<!-- Twitter Meta Tags -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Ecoalertas - Monitoreo Inteligente de Incidencias Urbanas" name="twitter:title"/>
+<meta content="Plataforma de Monitoreo Inteligente de Incidencias Urbanas" name="twitter:description"/>
+<meta content="https://ecoalertas.com/assets/twitter-image.jpg" name="twitter:image"/>
+<!-- Favicon -->
+<link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="/favicon.png" rel="icon" type="image/png"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon"/>
+<!-- Performance Optimization -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://cdnjs.cloudflare.com" rel="preconnect"/>
+<!-- Critical CSS -->
+<link as="style" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet"/></noscript>
+<!-- Custom Styles -->
+<link as="style" href="css/styles.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<noscript><link href="css/styles.css" rel="stylesheet"/></noscript>
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Structured Data -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Ecoalertas",
+    "url": "https://ecoalertas.com",
+    "logo": "https://ecoalertas.com/assets/logo.png",
+    "description": "Plataforma de Monitoreo Inteligente de Incidencias Urbanas",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Customer Service",
+      "email": "contactoecoalertas@gmail.com"
+    }
+  }
+  </script>
+</head>
+<body class="bg-light"><header class="site-header sticky-top bg-white shadow-sm" role="banner">
+<nav aria-label="Navegación principal" class="navbar navbar-expand-lg navbar-light" role="navigation">
+<div class="container">
+<a aria-label="Ecoalertas - Inicio" class="navbar-brand d-flex align-items-center" href="#">
+<svg aria-hidden="true" class="me-2" height="40" viewbox="0 0 40 40" width="40">
+<circle cx="20" cy="20" fill="#22c55e" opacity="0.1" r="18"></circle>
+<path d="M20 8l-8 12h6v12h4V20h6z" fill="#22c55e"></path>
+</svg>
+<span class="fw-bold text-success fs-4">EcoAlertas</span>
+</a>
+<button aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegación" class="navbar-toggler border-0" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+<ul class="navbar-nav ms-auto" role="menubar">
+<li class="nav-item" role="menuitem">
+<a aria-current="page" class="nav-link" href="https://nico191196.github.io/Ecoalertas-landing-page/index.html#inicio">Inicio</a>
+</li>
+<li class="nav-item" role="menuitem">
+<a class="nav-link" href="https://nico191196.github.io/Ecoalertas-landing-page/index.html#sobre-nosotros">Sobre Nosotros</a>
+</li>
+<li class="nav-item" role="menuitem">
+<a class="nav-link" href="https://nico191196.github.io/Ecoalertas-landing-page/index.html#funcionalidades">Funcionalidades</a>
+</li>
+<li class="nav-item" role="menuitem">
+<a class="nav-link" href="https://nico191196.github.io/Ecoalertas-landing-page/contacto.html">Contacto</a>
+</li>
+<li class="nav-item ms-2" role="menuitem">
+<button aria-describedby="login-description" class="btn btn-outline-success" data-bs-target="#loginModal" data-bs-toggle="modal">
+                Iniciar Sesión
+              </button>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+</header>
+  
+<!-- Body -->
+<body class="bg-light">
+
+  <main id="main-content" role="main">
+    <section class="py-5 bg-white border-bottom text-center">
+      <div class="container">
+        <h1 class="display-5 fw-bold text-success">Política de Privacidad</h1>
+        <p class="lead text-muted">Tu privacidad es fundamental para nosotros. Aquí detallamos cómo protegemos tu información.</p>
+      </div>
+    </section>
+
+    <section class="py-5 bg-light">
+      <div class="container">
+        <h2 class="fw-bold mb-4">1. Información que recopilamos</h2>
+        <p class="text-muted">Recolectamos datos personales como nombre, correo electrónico, ubicación y datos de uso con fines de mejorar el servicio.</p>
+
+        <h2 class="fw-bold mt-5 mb-4">2. Cómo usamos tu información</h2>
+        <p class="text-muted">Utilizamos tus datos para enviar notificaciones, mejorar la experiencia de usuario y generar estadísticas de uso.</p>
+
+        <h2 class="fw-bold mt-5 mb-4">3. Almacenamiento y seguridad</h2>
+        <p class="text-muted">Tus datos se almacenan en servidores seguros y aplicamos medidas técnicas para evitar accesos no autorizados.</p>
+
+        <h2 class="fw-bold mt-5 mb-4">4. Terceros</h2>
+        <p class="text-muted">No vendemos tu información. Podemos compartirla con servicios técnicos como Firebase, bajo acuerdos de confidencialidad.</p>
+
+        <h2 class="fw-bold mt-5 mb-4">5. Tus derechos</h2>
+        <p class="text-muted">Podés acceder, modificar o eliminar tus datos escribiéndonos a <a href="mailto:privacidad@ecoalertas.com">privacidad@ecoalertas.com</a>.</p>
+      </div>
+    </section>
+  </main>
+</body>
+
+
+
+<!-- Footer -->
+<footer class="bg-white text-dark py-5 border-top" role="contentinfo">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 mb-4 mb-lg-0">
+        <div class="d-flex align-items-center mb-3">
+          <svg width="32" height="32" viewBox="0 0 32 32" class="me-2" aria-hidden="true">
+            <circle cx="16" cy="16" r="14" fill="#22c55e" opacity="0.2"/>
+            <path d="M16 6l-8 12h6v8h4v-8h6z" fill="#22c55e"/>
+          </svg>
+          <span class="fw-bold fs-5">Ecoalertas</span>
+        </div>
+        <p class="text-muted mb-3">Tecnología al servicio de la ciudadanía para ciudades más sostenibles.</p>
+        <div class="social-links d-flex align-items-center">
+          <a href="https://facebook.com/ecoalertas" class="text-black me-3" target="_blank" rel="noopener" aria-label="Facebook">
+            <!-- Icono Facebook -->
+          </a>
+          <a href="https://twitter.com/ecoalertas" class="text-black me-3" target="_blank" rel="noopener" aria-label="Twitter">
+            <!-- Icono Twitter -->
+          </a>
+          <a href="https://linkedin.com/company/ecoalertas" class="text-black me-3" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <!-- Icono LinkedIn -->
+          </a>
+          <a href="https://instagram.com/ecoalertas" class="text-black" target="_blank" rel="noopener" aria-label="Instagram">
+            <!-- Icono Instagram -->
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+        <h5 class="fw-semibold mb-3">Producto</h5>
+        <ul class="list-unstyled">
+          <li class="mb-2"><a href="https://nico191196.github.io/Ecoalertas-landing-page/dashboard.html" class="text-muted text-decoration-none">Dashboard</a></li>
+          <li class="mb-2"><a href="https://nico191196.github.io/Ecoalertas-landing-page/alertas.html" class="text-muted text-decoration-none">Alertas</a></li>
+          <li class="mb-2"><a href="https://nico191196.github.io/Ecoalertas-landing-page/api.html" class="text-muted text-decoration-none">API</a></li>
+          <li class="mb-2"><a href="https://nico191196.github.io/Ecoalertas-landing-page/movil.html" class="text-muted text-decoration-none">Móvil</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+        <h5 class="fw-semibold mb-3">Empresa</h5>
+        <ul class="list-unstyled">
+          <li class="mb-2"><a href="https://nico191196.github.io/Ecoalertas-landing-page/#sobre-nosotros" class="text-muted text-decoration-none">Sobre Nosotros</a></li>
+          <li class="mb-2"><a href="https://nico191196.github.io/Ecoalertas-landing-page/blog.html" class="text-muted text-decoration-none">Blog</a></li>
+          <li class="mb-2"><a href="https://nico191196.github.io/Ecoalertas-landing-page/carreras.html" class="text-muted text-decoration-none">Carreras</a></li>
+          <li class="mb-2"><a href="https://nico191196.github.io/Ecoalertas-landing-page/prensa.html" class="text-muted text-decoration-none">Prensa</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+        <h5 class="fw-semibold mb-3">Soporte</h5>
+        <ul class="list-unstyled">
+          <li class="mb-2"><a href="https://nico191196.github.io/Ecoalertas-landing-page/support.html" class="text-muted text-decoration-none">Centro de Ayuda</a></li>
+          <li class="mb-2"><a href="https://nico191196.github.io/Ecoalertas-landing-page/contacto.html" class="text-muted text-decoration-none">Contacto</a></li>
+          <li class="mb-2"><a href="https://nico191196.github.io/Ecoalertas-landing-page/status.html" class="text-muted text-decoration-none">Estado</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-2 col-md-6">
+        <h5 class="fw-semibold mb-3">Legal</h5>
+        <ul class="list-unstyled">
+          <li class="mb-2"><a href="https://nico191196.github.io/Ecoalertas-landing-page/privacidad.html" class="text-muted text-decoration-none">Privacidad</a></li>
+          <li class="mb-2"><a href="https://nico191196.github.io/Ecoalertas-landing-page/terminos.html" class="text-muted text-decoration-none">Términos</a></li>
+          <li class="mb-2"><a href="https://nico191196.github.io/Ecoalertas-landing-page/cookies.html" class="text-muted text-decoration-none">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="border-secondary my-4">
+
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <p class="text-muted mb-0">© 2024 Ecoalertas. Todos los derechos reservados.</p>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <p class="text-muted mb-0">Hecho con 💚 para el planeta</p>
+      </div>
+    </div>
+  </div>
+</footer>
