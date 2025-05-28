@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoAlertas - Monitoreo Inteligente de Incidencias Urbanas</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="EcoAlertas - Plataforma de Monitoreo Inteligente de Incidencias Urbanas en tiempo real. Únete a la revolución del cuidado de las ciudades">
+  <meta name="keywords" content="ciudades, alertas, ecología, monitoreo, sostenibilidad, smart cities, ciudades inteligentes, civico, cambio climático">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Ecoalertas Team">
+  <link rel="canonical" href="https://ecoalertas.com">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="EcoAlertas - Monitoreo Inteligente de Incidencias Urbanas">
+  <meta property="og:description" content="Recibe alertas en tiempo real y ayuda a mejorar nuestras ciudades.">
+  <meta property="og:image" content="https://ecoalertas.com/assets/og-image.jpg">
+  <meta property="og:url" content="https://ecoalertas.com">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="EcoAlertas">
+  
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ecoalertas - Monitoreo Inteligente de Incidencias Urbanas">
+  <meta name="twitter:description" content="Plataforma de Monitoreo Inteligente de Incidencias Urbanas">
+  <meta name="twitter:image" content="https://ecoalertas.com/assets/twitter-image.jpg">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  <!-- Performance Optimization -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  
+  <!-- Critical CSS -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"></noscript>
+  
+  <!-- Custom Styles -->
+  <link rel="preload" href="css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
+  
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Ecoalertas",
+    "url": "https://ecoalertas.com",
+    "logo": "https://ecoalertas.com/assets/logo.png",
+    "description": "Plataforma de Monitoreo Inteligente de Incidencias Urbanas",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Customer Service",
+      "email": "contactoecoalertas@gmail.com"
+    }
+  }
+  </script>
+</head>
+
+<body class="bg-light">
+  <!-- Skip to main content -->
+  <a href="#main-content" class="skip-link visually-hidden-focusable btn btn-primary position-absolute top-0 start-0 z-index-top">
+    Saltar al contenido principal
+  </a>
+
+  <!-- Header -->
+  <header class="site-header sticky-top bg-white shadow-sm" role="banner">
+    <nav class="navbar navbar-expand-lg navbar-light" role="navigation" aria-label="Navegación principal">
+      <div class="container">
+       <a class="navbar-brand d-flex align-items-center" href="#" aria-label="Ecoalertas - Inicio">
+          <img src="assets/img/ecoalertas-logo.png" alt="EcoAlertas" height="40" class="me-2">
+          <span class="fw-bold text-success fs-4">EcoAlertas</span>
+        </a>
+        <button class="navbar-toggler border-0" type="button" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav" 
+                aria-expanded="false" 
+                aria-label="Alternar navegación">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto" role="menubar">
+            <li class="nav-item" role="menuitem">
+              <a class="nav-link" href="#inicio" aria-current="page">Inicio</a>
+            </li>
+            <li class="nav-item" role="menuitem">
+              <a class="nav-link" href="#funcionalidades">Funcionalidades</a>
+            </li>
+            <li class="nav-item" role="menuitem">
+              <a class="nav-link" href="#sobre-nosotros">Sobre Nosotros</a>
+            </li>
+            <li class="nav-item" role="menuitem">
+              <a class="nav-link" href="#contacto">Contacto</a>
+            </li>
+            <li class="nav-item ms-2" role="menuitem">
+              <button class="btn btn-outline-success" 
+                      data-bs-toggle="modal" 
+                      data-bs-target="#loginModal"
+                      aria-describedby="login-description">
+                Iniciar Sesión
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+<body>
+    <!-- Navegación -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-leaf"></i>
+                EcoAlertas
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="carreras.html">Carreras</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección Principal de Carreras -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-10">
+                    <h1 class="hero-title">Únete al equipo de EcoAlertas</h1>
+                    <p class="hero-subtitle">
+                        Estamos construyendo el futuro de las ciudades inteligentes y sostenibles. 
+                        Buscamos personas apasionadas por la tecnología y el medioambiente que quieran 
+                        crear un impacto positivo en sus comunidades a través de soluciones innovadoras.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Misión y Propósito -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="h3 mb-4" style="color: var(--eco-green); font-weight: 600;">Nuestra Misión</h2>
+                    <p class="lead text-muted">
+                        En EcoAlertas creemos que la tecnología puede ser una fuerza transformadora para 
+                        el cuidado del medioambiente. Desarrollamos herramientas que empoderan a los 
+                        ciudadanos para reportar problemas ambientales y colaborar con las autoridades 
+                        en la construcción de ciudades más limpias y sostenibles.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tarjeta de Estado Actual -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="career-card text-center">
+                        <div class="career-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        
+                        <h3 class="h4 mb-3" style="color: var(--eco-dark); font-weight: 600;">
+                            Construyendo Nuestro Equipo
+                        </h3>
+                        
+                        <p class="career-message">
+                            Actualmente no tenemos posiciones abiertas, pero estamos en constante 
+                            crecimiento y siempre buscamos talento excepcional. Síguenos en LinkedIn 
+                            para ser el primero en enterarte de nuevas oportunidades y conocer más 
+                            sobre nuestra cultura de trabajo.
+                        </p>
+                        
+                        <a href="https://linkedin.com/company/ecoalertas" 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           class="btn-linkedin">
+                            <i class="fab fa-linkedin"></i>
+                            Seguir en LinkedIn
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Valores del Equipo -->
+    <section class="py-5" style="background: rgba(34, 197, 94, 0.03);">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="h3" style="color: var(--eco-green); font-weight: 600;">
+                        ¿Qué Buscamos en Nuestro Equipo?
+                    </h2>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4 text-center">
+                    <div class="p-4">
+                        <div class="mb-3">
+                            <i class="fas fa-heart" style="font-size: 2.5rem; color: var(--eco-green);"></i>
+                        </div>
+                        <h4 class="h5 mb-3" style="color: var(--eco-dark);">Pasión Ambiental</h4>
+                        <p class="text-muted">
+                            Personas comprometidas con el cuidado del medioambiente y la sostenibilidad.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 text-center">
+                    <div class="p-4">
+                        <div class="mb-3">
+                            <i class="fas fa-code" style="font-size: 2.5rem; color: var(--eco-green);"></i>
+                        </div>
+                        <h4 class="h5 mb-3" style="color: var(--eco-dark);">Innovación Tecnológica</h4>
+                        <p class="text-muted">
+                            Profesionales que buscan usar la tecnología para crear soluciones reales.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 text-center">
+                    <div class="p-4">
+                        <div class="mb-3">
+                            <i class="fas fa-hands-helping" style="font-size: 2.5rem; color: var(--eco-green);"></i>
+                        </div>
+                        <h4 class="h5 mb-3" style="color: var(--eco-dark);">Impacto Social</h4>
+                        <p class="text-muted">
+                            Individuos motivados por generar un cambio positivo en sus comunidades.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Footer -->
+  <footer class="bg-white text-dark py-5 border-top" role="contentinfo">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-4 mb-lg-0">
+          <div class="col-md-6 mb-4 mb-md-0">
+              <a class="d-flex align-items-center mb-2 text-dark text-decoration-none" href="#" aria-label="EcoAlertas - Inicio">
+                <img src="assets/img/ecoalertas-logo.png" alt="EcoAlertas" height="32" class="me-2">
+                <span class="fw-bold fs-5">EcoAlertas</span>
+              </a>
+            <span class="fw-bold fs-5">Ecoalertas</span>
+          </div>
+          <p class="text-muted mb-3">
+            Tecnología al servicio de la ciudadanía para ciudades más sostenibles.
+          </p>
+          <div class="social-links d-flex align-items-center">
+            <a href="https://facebook.com/ecoalertas" class="text-black me-3" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+                <path fill="currentColor" d="M18 0H2C.9 0 0 .9 0 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V2c0-1.1-.9-2-2-2zM15 11h-2v7h-3v-7H8V8h2V6.5C10 4.6 10.9 4 12.5 4H15v3h-1.5c-.6 0-1 .4-1 1V8h3l-.5 3z"/>
+              </svg>
+            </a>
+          
+            <a href="https://twitter.com/ecoalertas" class="text-black me-3" target="_blank" rel="noopener" aria-label="Twitter">
+              <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+                <path fill="currentColor" d="M19 4.74c-.69.31-1.43.52-2.2.62.79-.47 1.4-1.22 1.68-2.11-.74.44-1.56.76-2.43.93-.7-.74-1.69-1.2-2.79-1.2-2.11 0-3.83 1.71-3.83 3.83 0 .3.03.59.1.87C6.28 6.55 3.34 5.04 1.36 2.69c-.33.56-.52 1.22-.52 1.92 0 1.33.68 2.5 1.71 3.19-.63-.02-1.22-.19-1.74-.48v.05c0 1.86 1.32 3.41 3.07 3.76-.32.09-.66.13-1.01.13-.25 0-.49-.02-.73-.07.49 1.54 1.93 2.66 3.63 2.69-1.31 1.03-2.97 1.64-4.77 1.64-.31 0-.62-.02-.92-.05 1.69 1.08 3.7 1.71 5.86 1.71 7.03 0 10.87-5.82 10.87-10.87 0-.17 0-.33-.01-.5.75-.54 1.4-1.21 1.91-1.98z"/>
+              </svg>
+            </a>
+          
+            <a href="https://linkedin.com/company/ecoalertas" class="text-black me-3" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+                <path fill="currentColor" d="M18 0H2C.9 0 0 .9 0 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V2c0-1.1-.9-2-2-2zM6 16H3V7h3v9zM4.5 5.5C3.7 5.5 3 4.8 3 4s.7-1.5 1.5-1.5S6 3.2 6 4s-.7 1.5-1.5 1.5zM17 16h-3v-4.5c0-1.1-.9-2-2-2s-2 .9-2 2V16H7V7h3v1.2c.5-.8 1.6-1.2 2.5-1.2 1.9 0 3.5 1.6 3.5 3.5V16z"/>
+              </svg>
+            </a>
+          
+            <a href="https://instagram.com/ecoalertas" class="text-black" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+                <path fill="currentColor" d="M10 2.2c2.7 0 3 .01 4.1.06 1.1.05 1.7.23 2.1.39.5.2.9.44 1.3.84.4.4.7.8.9 1.3.2.4.3 1 .4 2.1.05 1.1.06 1.4.06 4.1s-.01 3-.06 4.1c-.05 1.1-.23 1.7-.4 2.1-.2.5-.44.9-.84 1.3-.4.4-.8.7-1.3.9-.4.2-1 .3-2.1.4-1.1.05-1.4.06-4.1.06s-3-.01-4.1-.06c-1.1-.05-1.7-.23-2.1-.4-.5-.2-.9-.44-1.3-.84-.4-.4-.7-.8-.9-1.3-.2-.4-.3-1-.4-2.1C2.2 13 2.2 12.7 2.2 10s.01-3 .06-4.1c.05-1.1.23-1.7.4-2.1.2-.5.44-.9.84-1.3.4-.4.8-.7 1.3-.9.4-.2 1-.3 2.1-.4C7 2.2 7.3 2.2 10 2.2zm0-2.2C7.3 0 7 0 5.9.05 4.8.1 3.8.3 3 .7c-.8.4-1.5.9-2.2 1.6C.3 3.8.1 4.8.05 5.9.01 7 0 7.3 0 10s.01 3 .05 4.1c.05 1.1.23 2.1.45 2.9.4.8.9 1.5 1.6 2.2.7.7 1.4 1.2 2.2 1.6.8.2 1.8.4 2.9.45 1.1.05 1.4.05 4.1.05s3 0 4.1-.05c1.1-.05 2.1-.23 2.9-.45.8-.4 1.5-.9 2.2-1.6.7-.7 1.2-1.4 1.6-2.2.2-.8.4-1.8.45-2.9.05-1.1.05-1.4.05-4.1s0-3-.05-4.1c-.05-1.1-.23-2.1-.45-2.9-.4-.8-.9-1.5-1.6-2.2C18.2.3 17.2.1 16.1.05 15 .01 14.7 0 12 0H10zM10 4.8a5.2 5.2 0 1 0 0 10.4 5.2 5.2 0 0 0 0-10.4zm0 8.6a3.4 3.4 0 1 1 0-6.8 3.4 3.4 0 0 1 0 6.8zm5.5-9.7a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+          <h5 class="fw-semibold mb-3">Producto</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-text-white">Dashboard</a></li>
+            <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-text-white">Alertas</a></li>
+            <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-text-white">API</a></li>
+            <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-text-white">Móvil</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+          <h5 class="fw-semibold mb-3">Empresa</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-text-white">Sobre Nosotros</a></li>
+            <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-text-white">Blog</a></li>
+            <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-text-white">Carreras</a></li>
+            <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-text-white">Prensa</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+          <h5 class="fw-semibold mb-3">Soporte</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-text-white">Centro de Ayuda</a></li>
+            <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-text-white">Contacto</a></li>
+            <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-text-white">Estado</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-lg-2 col-md-6">
+          <h5 class="fw-semibold mb-3">Legal</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-text-white">Privacidad</a></li>
+            <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-text-white">Términos</a></li>
+            <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-text-white">Cookies</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <hr class="border-secondary my-4">
+      
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <p class="text-muted mb-0">
+            © 2024 Ecoalertas. Todos los derechos reservados.
+          </p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <p class="text-muted mb-0">
+            Hecho con 💚 para el planeta
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+      <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
